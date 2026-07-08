@@ -1,0 +1,19 @@
+* {
+    color: blue;
+}
+
+.row {
+    width: 500px;
+    height: 200px;
+    background-color: green;
+    margin-bottom: 50px;
+}
+
+.cell {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    margin: 20px;
+    display: inline;
+}
