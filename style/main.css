@@ -1,19 +1,31 @@
-* {
-    color: blue;
+html , body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
 }
-
+.gameBoard {
+    display: flexbox;
+    flex-direction: column;
+    position: absolute;
+    height: 50vh;
+    aspect-ratio: 1;
+}
 .row {
-    width: 500px;
-    height: 200px;
     background-color: green;
-    margin-bottom: 50px;
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    justify-content: space-evenly;
+
 }
 
 .cell {
     background-color: red;
-    height: 50px;
-    width: 50px;
+    position: relative;
     padding: 10px;
-    margin: 20px;
-    display: inline;
+    margin: 0px 10px 0px 10px;
+    flex: 1 1 auto;
+    aspect-ratio: 1;
 }
