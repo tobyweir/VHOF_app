@@ -7,9 +7,10 @@ html , body {
     display: flexbox;
     flex-direction: column;
     position: absolute;
-    height: 50vh;
+    height: min(80vh ,80vw);
     aspect-ratio: 1;
 }
+
 .row {
     background-color: green;
     position: relative;
@@ -23,6 +24,9 @@ html , body {
 
 .cell {
     background-color: red;
+    border-color: '';
+    border-width: 1px;
+    border-style: solid;
     position: relative;
     padding: 10px;
     margin: 0px 10px 0px 10px;
