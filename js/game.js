@@ -34,9 +34,11 @@ function updateRotation () {
     if (currRotation === Rotations.left || currRotation === Rotations.right) {
         removeHorizontalHover();
         addVerticalHover();
+        //match for hover on rows?
     } else {
         removeVerticalHover();
         addHorizontalHover();
+        //match for hover on columns?
     }
 }
 
@@ -108,13 +110,13 @@ function editBorderColourOnList(list, colour) {
 }
 
 rotateButton.addEventListener('click' , () => updateRotation() , false);
-
+updateRotation();
 // Leads to bugs where mouseout event isnt removed
 // document.addEventListener('keypress' , (key) => {
 //     if (key.code === "KeyR") {
 //         updateRotation();
 //     }
 // })
-addVerticalHover();
+Columns.column0[0].innerText = "10000"
 
 
