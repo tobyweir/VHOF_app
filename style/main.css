@@ -19,6 +19,9 @@ html , body {
     flex-direction: row;
     flex: 1 1 auto;
     justify-content: space-evenly;
+    border-color: '';
+    border-width: 1px;
+    border-style: solid;
 
 }
 

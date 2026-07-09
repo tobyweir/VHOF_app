@@ -31,7 +31,13 @@ function updateRotation () {
     } else {
         currRotation += 1;
     }
-    console.log(currRotation)
+    if (currRotation === Rotations.left || currRotation === Rotations.right) {
+        removeHorizontalHover();
+        addVerticalHover();
+    } else {
+        removeVerticalHover();
+        addHorizontalHover();
+    }
 }
 
 function addVerticalHover () {
@@ -58,6 +64,30 @@ function removeVerticalHover () {
     return;
 }
 
+function addHorizontalHover () {
+    for (let [i, rows] of Object.entries(Rows)) {
+        const mouseoverFn = () => editBorderColourOnList(rows , 'yellow');
+        const mouseoutFn = () => editBorderColourOnList(rows , '')
+        addEventListenerOnList(rows , 'mouseover' , mouseoverFn);
+        addEventListenerOnList(rows, 'mouseout', mouseoutFn);
+        currListeners.set(rows, { mouseoverFn, mouseoutFn });
+    } 
+    return ;
+}
+
+function removeHorizontalHover () {
+    for (let [i, rows] of Object.entries(Rows)) {
+        const listeners = currListeners.get(rows);
+        if (!listeners) {
+            continue;
+        }
+        removeEventListenerOnList(rows , 'mouseover' , listeners.mouseoverFn);
+        removeEventListenerOnList(rows, 'mouseout', listeners.mouseoutFn);
+        currListeners.delete(rows);
+    } 
+    return;
+}
+
 //https://stackoverflow.com/questions/12362256/addeventlistener-on-nodelist
 function addEventListenerOnList(list, event, fn) {
     for (var i = 0, len = list.length; i < len; i++) {
@@ -78,6 +108,13 @@ function editBorderColourOnList(list, colour) {
 }
 
 rotateButton.addEventListener('click' , () => updateRotation() , false);
+
+// Leads to bugs where mouseout event isnt removed
+// document.addEventListener('keypress' , (key) => {
+//     if (key.code === "KeyR") {
+//         updateRotation();
+//     }
+// })
 addVerticalHover();
 
 
