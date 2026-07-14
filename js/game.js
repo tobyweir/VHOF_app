@@ -4,8 +4,27 @@ const Rotations = {
     down : 2,
     left : 3,
 }
+
+const  Arrows  = {
+    up:    '\u2191',
+    right: '\u2192',
+    down:  '\u2193',
+    left:  '\u2190'
+};
 let currRotation = Rotations.left
 
+function getArrowText () {
+    switch (currRotation) {
+        case 0:
+            return Arrows.up;
+        case 1:
+            return Arrows.right;
+        case 2:
+            return Arrows.down;
+        case 3:
+            return Arrows.left;
+    }
+}
 let Columns = {
     column0 : document.querySelectorAll('.x0'),
     column1 : document.querySelectorAll('.x1'),
@@ -22,6 +41,8 @@ let Rows = {
     row4 : document.querySelectorAll('.y4'),
 }
 
+
+
 const rotateButton = document.querySelector('.rotateButton');
 const currListeners = new Map();
 
@@ -32,20 +53,21 @@ function updateRotation () {
         currRotation += 1;
     }
     if (currRotation === Rotations.left || currRotation === Rotations.right) {
-        removeHorizontalHover();
-        addVerticalHover();
-        //match for hover on rows?
-    } else {
         removeVerticalHover();
         addHorizontalHover();
+        //match for hover on rows?
+    } else {
+        removeHorizontalHover();
+        addVerticalHover();
         //match for hover on columns?
     }
+    console.log(currRotation)
 }
 
 function addVerticalHover () {
     for (let [i, cells] of Object.entries(Columns)) {
-        const mouseoverFn = () => editBorderColourOnList(cells , 'yellow');
-        const mouseoutFn = () => editBorderColourOnList(cells , '')
+        const mouseoverFn = () => editCellStyle(cells , true);
+        const mouseoutFn = () => editCellStyle(cells , false)
         addEventListenerOnList(cells , 'mouseover' , mouseoverFn);
         addEventListenerOnList(cells, 'mouseout', mouseoutFn);
         currListeners.set(cells, { mouseoverFn, mouseoutFn });
@@ -68,8 +90,8 @@ function removeVerticalHover () {
 
 function addHorizontalHover () {
     for (let [i, rows] of Object.entries(Rows)) {
-        const mouseoverFn = () => editBorderColourOnList(rows , 'yellow');
-        const mouseoutFn = () => editBorderColourOnList(rows , '')
+        const mouseoverFn = () => editCellStyle(rows , true);
+        const mouseoutFn = () => editCellStyle(rows , false)
         addEventListenerOnList(rows , 'mouseover' , mouseoverFn);
         addEventListenerOnList(rows, 'mouseout', mouseoutFn);
         currListeners.set(rows, { mouseoverFn, mouseoutFn });
@@ -109,6 +131,27 @@ function editBorderColourOnList(list, colour) {
         }
 }
 
+function editCellStyle(list, turnOn) {
+    if (turnOn === true) {
+        for (var i = 0, len = list.length; i < len; i++) {
+            list[i].style.borderColor = 'yellow';
+            const arrows = list[i].querySelectorAll('.arrow');
+            for (var j = 0, len2 = arrows.length; j < len2; j++) {
+                arrows[j].textContent = getArrowText();
+                arrows[j].style.display = "inline";
+            }
+        }
+    } else {
+        for (var i = 0, len = list.length; i < len; i++) {
+            list[i].style.borderColor = '';
+            const arrows = list[i].querySelectorAll('.arrow');
+            for (var j = 0, len2 = arrows.length; j < len2; j++) {
+                arrows[j].style.display = "none";
+            }
+        }
+    }
+}
+
 rotateButton.addEventListener('click' , () => updateRotation() , false);
 updateRotation();
 // Leads to bugs where mouseout event isnt removed
@@ -117,6 +160,6 @@ updateRotation();
 //         updateRotation();
 //     }
 // })
-Columns.column0[0].innerText = "10000"
+
 
 
