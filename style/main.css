@@ -8,7 +8,8 @@ html , body {
     width: 500px;
     height: 500xpx;
     aspect-ratio: 1;
-    position: absolute;
+    position: relative;
+    top: 0;
     left: 0; 
     right: 0; 
     margin-inline: auto; 
@@ -42,17 +43,121 @@ html , body {
 .addTileButton{
     margin: 0 auto;
     height: fit-content;
+    display: none;
+}
+
+.removeTileButton{
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 1;
+}
+
+.arrow{
+
+}
+
+.value{
+
+}
+.tile-container {
+    top: 0;
+    left: 0;
 }
 .tile {
     width: 90px;
     height: 90px;
     aspect-ratio: 1;
-    position: relative;
-
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: yellow;
     border: 5px solid #bbada0;
-
-    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.tile.pos0-0 {
+    transform: translate(0px, 0px);
+}
+.tile.pos0-1 {
+    transform: translate(0px, 100px);
+}
+.tile.pos0-2 {
+    transform: translate(0px, 200px);
+}
+.tile.pos0-3 {
+    transform: translate(0px, 300px);
+}
+.tile.pos0-4 {
+    transform: translate(0px, 400px);
+}
+
+
+.tile.pos1-0 {
+    transform: translate(100px, 0px);
+}
+.tile.pos1-1 {
+    transform: translate(100px, 100px);
+}
+.tile.pos1-2 {
+    transform: translate(100px, 200px);
+}
+.tile.pos1-3 {
+    transform: translate(100px, 300px);
+}
+.tile.pos1-4 {
+    transform: translate(100px, 400px);
+}
+
+
+.tile.pos2-0 {
+    transform: translate(200px, 0px);
+}
+.tile.pos2-1 {
+    transform: translate(200px, 100px);
+}
+.tile.pos2-2 {
+    transform: translate(200px, 200px);
+}
+.tile.pos2-3 {
+    transform: translate(200px, 300px);
+}
+.tile.pos2-4 {
+    transform: translate(200px, 400px);
+}
+
+
+.tile.pos3-0 {
+    transform: translate(300px, 0px);
+}
+.tile.pos3-1 {
+    transform: translate(300px, 100px);
+}
+.tile.pos3-2 {
+    transform: translate(300px, 200px);
+}
+.tile.pos3-3 {
+    transform: translate(300px, 300px);
+}
+.tile.pos3-4 {
+    transform: translate(300px, 400px);
+}
+
+
+.tile.pos4-0 {
+    transform: translate(400px, 0px);
+}
+.tile.pos4-1 {
+    transform: translate(400px, 100px);
+}
+.tile.pos4-2 {
+    transform: translate(400px, 200px);
+}
+.tile.pos4-3 {
+    transform: translate(400px, 300px);
+}
+.tile.pos4-4 {
+    transform: translate(400px, 400px);
 }
 

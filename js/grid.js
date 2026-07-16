@@ -1,30 +1,49 @@
-function addTileMakerButtons () {
-    const cells = Array.from(document.querySelectorAll('.cell'));
-    const insertButtonFn = (text , className , onclickFn) => (x) => {
-        let button = document.createElement("BUTTON");
-        button.classList.add(className);
-        button.innerText = text.toString();
-        button.onclick = (event) => onclickFn(button, event);
-        x.appendChild(button);
-        return x;
-    };
 
-    const addTileOnClickFn = (button , event) => {
-        let x = button.parentNode.getAttribute('cellX');
-        let y = button.parentNode.parentNode.getAttribute('rowY');
-        console.log(x , y);
-        return;
+
+function cellSetup() {
+    const cells = Array.from(document.querySelectorAll('.cell'));
+    const setButtonVisible = (x) => (event) => {
+        let button = x.querySelector(".addTileButton");
+        if (button) button.style.display = "block"
+    }
+    const setButtonInvisible = (x) => (event) => {
+        let button = x.querySelector(".addTileButton");
+        if (button) button.style.display = "none"
     }
 
     cells.map(insertButtonFn("Add tile" , 'addTileButton' , addTileOnClickFn));
-    //buttons = document.querySelectorAll('.addTileButton');
-    //let x = buttons[2].parentNode.getAttribute('cellX');
-    //let y = buttons[2].parentNode.parentNode.getAttribute('rowY');
+    cells.map(addEvent("mouseover" , setButtonVisible));
+    cells.map(addEvent("mouseout" , setButtonInvisible));
 }
 
 
-function createTile(button) {
+function createTileEl(x , y) {
+    let grid = document.querySelector(".tile-container");
+    let value = document.createElement("p");
+    let arrow = document.createElement("p");
+    
+    let tile = document.createElement("div");
+    tile.classList.add("tile");
+    tile.classList.add("pos" + x.toString() + '-' + y.toString());
+    insertButtonFn("x" , "removeTileButton" , (button , event) => {
+        button.parentNode.remove();
+    }) (tile);
+
+
+    value.classList.add("value");
+    value.innerText = "0";
+    tile.appendChild(value);
+
+    arrow.classList.add("arrow");
+    arrow.innerText = getArrowText();
+    tile.appendChild(arrow);
+
+
+    grid.appendChild(tile);
+
 
 }
 
-addTileMakerButtons();
+cellSetup()
+const rotateButton = document.querySelector('.rotateButton');
+rotateButton.addEventListener('click' , () => updateRotation() , false);
