@@ -21,26 +21,24 @@ function createTileEl(x , y) {
     let grid = document.querySelector(".tile-container");
     let value = document.createElement("p");
     let arrow = document.createElement("p");
-    
     let tile = document.createElement("div");
+   
     tile.classList.add("tile");
-    tile.classList.add("pos" + x.toString() + '-' + y.toString());
+    tile.setAttribute("xpos" , x.toString());
+    tile.setAttribute("ypos" , y.toString());
     insertButtonFn("x" , "removeTileButton" , (button , event) => {
         button.parentNode.remove();
     }) (tile);
-
-
+    
     value.classList.add("value");
     value.innerText = "0";
     tile.appendChild(value);
-
     arrow.classList.add("arrow");
     arrow.innerText = getArrowText();
     tile.appendChild(arrow);
-
-
     grid.appendChild(tile);
-
+    //add tile to the data grid?
+    //give that object a reference to this dom element?
 
 }
 

@@ -1,3 +1,8 @@
+:root {
+    --tile-width: 100px;
+    --tile-height: 100px;
+}
+
 html , body {
     margin: 0px;
     padding: 0px;
@@ -77,87 +82,84 @@ html , body {
     align-items: center;
 }
 
-.tile.pos0-0 {
-    transform: translate(0px, 0px);
+
+.tile[xpos="0"][ypos="0"]{
+    transform: translate(calc(0 * var(--tile-width)), calc(0 * var(--tile-height)));
 }
-.tile.pos0-1 {
-    transform: translate(0px, 100px);
+.tile[xpos="1"][ypos="0"]{
+    transform: translate(calc(1 * var(--tile-width)), calc(0 * var(--tile-height)));
 }
-.tile.pos0-2 {
-    transform: translate(0px, 200px);
+.tile[xpos="2"][ypos="0"]{
+    transform: translate(calc(2 * var(--tile-width)), calc(0 * var(--tile-height)));
 }
-.tile.pos0-3 {
-    transform: translate(0px, 300px);
+.tile[xpos="3"][ypos="0"]{
+    transform: translate(calc(3 * var(--tile-width)), calc(0 * var(--tile-height)));
 }
-.tile.pos0-4 {
-    transform: translate(0px, 400px);
+.tile[xpos="4"][ypos="0"]{
+    transform: translate(calc(4 * var(--tile-width)), calc(0 * var(--tile-height)));
 }
 
-
-.tile.pos1-0 {
-    transform: translate(100px, 0px);
+.tile[xpos="0"][ypos="1"]{
+    transform: translate(calc(0 * var(--tile-width)), calc(1 * var(--tile-height)));
 }
-.tile.pos1-1 {
-    transform: translate(100px, 100px);
+.tile[xpos="1"][ypos="1"]{
+    transform: translate(calc(1 * var(--tile-width)), calc(1 * var(--tile-height)));
 }
-.tile.pos1-2 {
-    transform: translate(100px, 200px);
+.tile[xpos="2"][ypos="1"]{
+    transform: translate(calc(2 * var(--tile-width)), calc(1 * var(--tile-height)));
 }
-.tile.pos1-3 {
-    transform: translate(100px, 300px);
+.tile[xpos="3"][ypos="1"]{
+    transform: translate(calc(3 * var(--tile-width)), calc(1 * var(--tile-height)));
 }
-.tile.pos1-4 {
-    transform: translate(100px, 400px);
-}
-
-
-.tile.pos2-0 {
-    transform: translate(200px, 0px);
-}
-.tile.pos2-1 {
-    transform: translate(200px, 100px);
-}
-.tile.pos2-2 {
-    transform: translate(200px, 200px);
-}
-.tile.pos2-3 {
-    transform: translate(200px, 300px);
-}
-.tile.pos2-4 {
-    transform: translate(200px, 400px);
+.tile[xpos="4"][ypos="1"]{
+    transform: translate(calc(4 * var(--tile-width)), calc(1 * var(--tile-height)));
 }
 
+.tile[xpos="0"][ypos="2"]{
+    transform: translate(calc(0 * var(--tile-width)), calc(2 * var(--tile-height)));
+}
+.tile[xpos="1"][ypos="2"]{
+    transform: translate(calc(1 * var(--tile-width)), calc(2 * var(--tile-height)));
+}
+.tile[xpos="2"][ypos="2"]{
+    transform: translate(calc(2 * var(--tile-width)), calc(2 * var(--tile-height)));
+}
+.tile[xpos="3"][ypos="2"]{
+    transform: translate(calc(3 * var(--tile-width)), calc(2 * var(--tile-height)));
+}
+.tile[xpos="4"][ypos="2"]{
+    transform: translate(calc(4 * var(--tile-width)), calc(2 * var(--tile-height)));
+}
 
-.tile.pos3-0 {
-    transform: translate(300px, 0px);
+.tile[xpos="0"][ypos="3"]{
+    transform: translate(calc(0 * var(--tile-width)), calc(3 * var(--tile-height)));
 }
-.tile.pos3-1 {
-    transform: translate(300px, 100px);
+.tile[xpos="1"][ypos="3"]{
+    transform: translate(calc(1 * var(--tile-width)), calc(3 * var(--tile-height)));
 }
-.tile.pos3-2 {
-    transform: translate(300px, 200px);
+.tile[xpos="2"][ypos="3"]{
+    transform: translate(calc(2 * var(--tile-width)), calc(3 * var(--tile-height)));
 }
-.tile.pos3-3 {
-    transform: translate(300px, 300px);
+.tile[xpos="3"][ypos="3"]{
+    transform: translate(calc(3 * var(--tile-width)), calc(3 * var(--tile-height)));
 }
-.tile.pos3-4 {
-    transform: translate(300px, 400px);
+.tile[xpos="4"][ypos="3"]{
+    transform: translate(calc(4 * var(--tile-width)), calc(3 * var(--tile-height)));
 }
 
-
-.tile.pos4-0 {
-    transform: translate(400px, 0px);
+.tile[xpos="0"][ypos="4"]{
+    transform: translate(calc(0 * var(--tile-width)), calc(4 * var(--tile-height)));
 }
-.tile.pos4-1 {
-    transform: translate(400px, 100px);
+.tile[xpos="1"][ypos="4"]{
+    transform: translate(calc(1 * var(--tile-width)), calc(4 * var(--tile-height)));
 }
-.tile.pos4-2 {
-    transform: translate(400px, 200px);
+.tile[xpos="2"][ypos="4"]{
+    transform: translate(calc(2 * var(--tile-width)), calc(4 * var(--tile-height)));
 }
-.tile.pos4-3 {
-    transform: translate(400px, 300px);
+.tile[xpos="3"][ypos="4"]{
+    transform: translate(calc(3 * var(--tile-width)), calc(4 * var(--tile-height)));
 }
-.tile.pos4-4 {
-    transform: translate(400px, 400px);
+.tile[xpos="4"][ypos="4"]{
+    transform: translate(calc(4 * var(--tile-width)), calc(4 * var(--tile-height)));
 }
 
