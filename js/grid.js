@@ -16,6 +16,21 @@ function cellSetup() {
     cells.map(addEvent("mouseout" , setButtonInvisible));
 }
 
+function getTilesInColumn (x) {
+    return document.querySelectorAll(`.tile[xpos="${x}"]`);
+}
+
+function getTilesInRow (y) {
+    return document.querySelectorAll(`.tile[ypos="${y}"]`);
+}
+
+function getTiles (x , y) {
+    if (currRotation === Rotations.left || currRotation === Rotations.right)  {
+        return getTilesInRow(y);
+    } else {
+        return getTilesInColumn(x);
+    }
+}
 
 function createTileEl(x , y) {
     let grid = document.querySelector(".tile-container");
@@ -30,6 +45,31 @@ function createTileEl(x , y) {
         button.parentNode.remove();
     }) (tile);
     
+    addEvent("mouseover" , (x) => (event) => {
+        let button = x.querySelector(".removeTileButton");
+        if (button) button.style.display = "block";
+    }) (tile);
+    addEvent("mouseout" , (x) => (event) => {
+        let button = x.querySelector(".removeTileButton");
+        if (button) button.style.display = "none";
+    }) (tile);
+
+    addEvent("mouseover" , (x) => (event) => {
+        let xpos = x.getAttribute("xpos");
+        let ypos = x.getAttribute("ypos");
+        let tiles = getTiles(xpos , ypos);
+        tiles.forEach((x) => {
+            x.style.borderColor = "green"
+        })
+    }) (tile);
+    addEvent("mouseout" , (x) => (event) => {
+        let xpos = x.getAttribute("xpos");
+        let ypos = x.getAttribute("ypos");
+        let tiles = getTiles(xpos , ypos);
+        tiles.forEach((x) => {
+            x.style.borderColor = "grey"
+        })
+    }) (tile);
     value.classList.add("value");
     value.innerText = "0";
     tile.appendChild(value);
