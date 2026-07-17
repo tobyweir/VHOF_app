@@ -34,7 +34,7 @@ function getTiles (x , y) {
 
 function createTileEl(x , y) {
     let grid = document.querySelector(".tile-container");
-    let value = document.createElement("p");
+    let value = document.createElement("input");
     let arrow = document.createElement("p");
     let tile = document.createElement("div");
    
@@ -60,6 +60,11 @@ function createTileEl(x , y) {
         let tiles = getTiles(xpos , ypos);
         tiles.forEach((x) => {
             x.style.borderColor = "green"
+            let arrow = x.querySelector(".arrow");
+            if (arrow) {
+                arrow.innerText = getArrowText();
+                arrow.style.display = "block"
+            }
         })
     }) (tile);
     addEvent("mouseout" , (x) => (event) => {
@@ -68,10 +73,37 @@ function createTileEl(x , y) {
         let tiles = getTiles(xpos , ypos);
         tiles.forEach((x) => {
             x.style.borderColor = "grey"
+            let arrow = x.querySelector(".arrow");
+            if (arrow) {
+                arrow.style.display = "none"
+            }
         })
     }) (tile);
     value.classList.add("value");
-    value.innerText = "0";
+    value.setAttribute("value" , "0");
+    value.setAttribute("type" , "number")
+
+    value.addEventListener("input", () => {
+    if (value.value.length > 5) {
+        value.value = value.value.slice(0, 5);
+    }
+    });
+
+    value.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+
+    value.addEventListener("dblclick", (e) => {
+        e.stopPropagation();
+    });
+
+    addEvent("dblclick" , (x) => (event) => {
+        let xpos = x.getAttribute("xpos");
+        let ypos = x.getAttribute("ypos");
+        console.log("clicked");
+        console.log(xpos , ypos);
+    })(tile);
+    
     tile.appendChild(value);
     arrow.classList.add("arrow");
     arrow.innerText = getArrowText();

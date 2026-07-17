@@ -60,11 +60,20 @@ html , body {
 }
 
 .arrow{
-
+    display: none;
 }
 
-.value{
-
+.value {
+    width: 40px;
+    text-align: center;
+    font: inherit;
+    color: inherit;
+    appearance: textfield;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 0;
+    margin: 0;
 }
 .tile-container {
     top: 0;
