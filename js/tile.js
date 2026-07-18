@@ -16,7 +16,15 @@ class Tile {
         this._value = value;
         this._x = x;
         this._y = y;
-        this._tileEl = Tile.createTileEl(x , y);
+        let inner = Tile.createTileEl(x , y);
+        inner.classList.add("appear");
+        let outer = document.createElement("div");
+        outer.classList.add("tile");
+        outer.setAttribute("xpos", x.toString());
+        outer.setAttribute("ypos", y.toString());
+        outer.appendChild(inner);
+        this._tileEl = outer;
+        Tile.addTileEvents(this._tileEl);
         this._isAccumulator = isAccumulator;
         let grid = document.querySelector(".tile-container");
         grid.append(this._tileEl);
@@ -123,16 +131,11 @@ class Tile {
         let arrow = document.createElement("p");
         let tile = document.createElement("div");
 
-        tile.classList.add("tile");
-        tile.setAttribute("xpos", x.toString());
-        tile.setAttribute("ypos", y.toString());
-
         insertButtonFn("x", "removeTileButton", (button, event) => {
-            let xpos = button.parentNode.getAttribute("xpos");
-            let ypos = button.parentNode.getAttribute("ypos");
+            let xpos = button.parentNode.parentNode.getAttribute("xpos");
+            let ypos = button.parentNode.parentNode.getAttribute("ypos");
             removeTileFromGrid(xpos, ypos);
         })(tile);
-        Tile.addTileEvents(tile);
         tile.appendChild(value);
         arrow.classList.add("arrow");
         arrow.innerText = getArrowText();
