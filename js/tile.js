@@ -72,7 +72,7 @@ class Tile {
                 value.value = value.value.slice(0, 5);
             }
             console.log("change to input");
-            updateTileValue(value.value , value.parentNode.getAttribute("xpos") , value.parentNode.getAttribute("ypos"));
+            updateTileValue(value.value , value.parentNode.parentNode.getAttribute("xpos") , value.parentNode.parentNode.getAttribute("ypos"));
         });
 
         value.addEventListener("click", (e) => {

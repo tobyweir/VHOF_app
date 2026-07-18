@@ -200,7 +200,7 @@ html , body {
 }
 
 .disappear {
-  animation: disappear 0.15s ease;
+  animation: disappear 0.10s ease;
   animation-fill-mode: forwards;
 }
 
