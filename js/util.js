@@ -10,7 +10,7 @@ const insertButtonFn = (text , className , onclickFn) => (x) => {
 const addTileOnClickFn = (button , event) => {
     let x = button.parentNode.getAttribute('cellX');
     let y = button.parentNode.parentNode.getAttribute('rowY');
-    createTileEl(x , y);
+    addTileToGrid(x , y);
     return;
 }
 
