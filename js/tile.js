@@ -56,6 +56,8 @@ class Tile {
             if (value.value.length > 5) {
                 value.value = value.value.slice(0, 5);
             }
+            console.log("change to input");
+            updateTileValue(value.value , value.parentNode.getAttribute("xpos") , value.parentNode.getAttribute("ypos"));
         });
 
         value.addEventListener("click", (e) => {
