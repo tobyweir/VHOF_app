@@ -183,7 +183,24 @@ html , body {
     transform: scale(1); } 
 }
 
+
 .appear {
   animation: appear 0.2s ease;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.disappear {
+  animation: disappear 0.15s ease;
+  animation-fill-mode: forwards;
 }
 

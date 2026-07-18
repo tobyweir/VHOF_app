@@ -18,6 +18,7 @@ class Tile {
         this._y = y;
         let inner = Tile.createTileEl(x , y);
         inner.classList.add("appear");
+        inner.classList.add("inner");
         let outer = document.createElement("div");
         outer.classList.add("tile");
         outer.setAttribute("xpos", x.toString());
@@ -51,7 +52,13 @@ class Tile {
     }
 
     remove() {
-        this._tileEl.remove()
+        let inner = this._tileEl.querySelector(".inner");
+        inner.classList.remove("appear");
+        inner.classList.add("disappear");
+        //this._tileEl.remove();
+        inner.addEventListener("animationend", () => {
+            this._tileEl.remove();
+        }, { once: true });
     }
     
     static createValue() {
