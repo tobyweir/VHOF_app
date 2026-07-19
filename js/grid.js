@@ -15,11 +15,11 @@ function cellSetup() {
 }
 
 function getTilesInColumn (x) {
-    return document.querySelectorAll(`.tile[xpos="${x}"]`);
+    return Array.from(document.querySelectorAll(`.outer[xpos="${x}"]`)).map(outer => outer.firstElementChild);
 }
 
 function getTilesInRow (y) {
-    return document.querySelectorAll(`.tile[ypos="${y}"]`);
+    return Array.from(document.querySelectorAll(`.outer[ypos="${y}"]`)).map(outer => outer.firstElementChild);
 }
 
 function getTiles (x , y) {

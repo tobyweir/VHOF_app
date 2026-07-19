@@ -18,14 +18,18 @@ class Tile {
         this._y = y;
         let inner = Tile.createTileEl(x , y);
         inner.classList.add("appear");
+        inner.addEventListener("animationend", () => {
+            inner.classList.remove("appear");
+        }, { once: true });
         inner.classList.add("inner");
+        Tile.addTileEvents(inner);
         let outer = document.createElement("div");
-        outer.classList.add("tile");
+        inner.classList.add("tile");
         outer.setAttribute("xpos", x.toString());
         outer.setAttribute("ypos", y.toString());
         outer.appendChild(inner);
+        outer.classList.add("outer");
         this._tileEl = outer;
-        Tile.addTileEvents(this._tileEl);
         this._isAccumulator = isAccumulator;
         let grid = document.querySelector(".tile-container");
         grid.append(this._tileEl);
@@ -100,8 +104,8 @@ class Tile {
         })(tile);
 
         addEvent("mouseover", (x) => (event) => {
-            let xpos = x.getAttribute("xpos");
-            let ypos = x.getAttribute("ypos");
+            let xpos = x.parentNode.getAttribute("xpos");
+            let ypos = x.parentNode.getAttribute("ypos");
             let tiles = getTiles(xpos, ypos);
             tiles.forEach((x) => {
                 x.style.borderColor = "green"
@@ -113,8 +117,8 @@ class Tile {
             })
         })(tile);
         addEvent("mouseout", (x) => (event) => {
-            let xpos = x.getAttribute("xpos");
-            let ypos = x.getAttribute("ypos");
+            let xpos = x.parentNode.getAttribute("xpos");
+            let ypos = x.parentNode.getAttribute("ypos");
             let tiles = getTiles(xpos, ypos);
             tiles.forEach((x) => {
                 x.style.borderColor = "grey"
@@ -125,8 +129,8 @@ class Tile {
             })
         })(tile);
         addEvent("dblclick", (x) => (event) => {
-            let xpos = x.getAttribute("xpos");
-            let ypos = x.getAttribute("ypos");
+            let xpos = x.parentNode.getAttribute("xpos");
+            let ypos = x.parentNode.getAttribute("ypos");
             console.log("clicked");
             console.log(xpos, ypos);
         })(tile);

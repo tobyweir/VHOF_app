@@ -1,6 +1,6 @@
 :root {
-    --tile-width: 100px;
-    --tile-height: 100px;
+    --outer-width: 100px;
+    --outer-height: 100px;
 }
 
 html , body {
@@ -61,6 +61,10 @@ html , body {
 
 .arrow{
     display: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .value {
@@ -82,95 +86,97 @@ html , body {
 .tile {
     width: 90px;
     height: 90px;
-    aspect-ratio: 1;
-    top: 0;
-    left: 0;
-    position: absolute;
     background-color: yellow;
     border: 5px solid #bbada0;
     justify-content: center;
     align-items: center;
 }
 
-
-.tile[xpos="0"][ypos="0"]{
-    transform: translate(calc(0 * var(--tile-width)), calc(0 * var(--tile-height)));
-}
-.tile[xpos="1"][ypos="0"]{
-    transform: translate(calc(1 * var(--tile-width)), calc(0 * var(--tile-height)));
-}
-.tile[xpos="2"][ypos="0"]{
-    transform: translate(calc(2 * var(--tile-width)), calc(0 * var(--tile-height)));
-}
-.tile[xpos="3"][ypos="0"]{
-    transform: translate(calc(3 * var(--tile-width)), calc(0 * var(--tile-height)));
-}
-.tile[xpos="4"][ypos="0"]{
-    transform: translate(calc(4 * var(--tile-width)), calc(0 * var(--tile-height)));
+.outer {
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 
-.tile[xpos="0"][ypos="1"]{
-    transform: translate(calc(0 * var(--tile-width)), calc(1 * var(--tile-height)));
+
+.outer[xpos="0"][ypos="0"]{
+    transform: translate(calc(0 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.tile[xpos="1"][ypos="1"]{
-    transform: translate(calc(1 * var(--tile-width)), calc(1 * var(--tile-height)));
+.outer[xpos="1"][ypos="0"]{
+    transform: translate(calc(1 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.tile[xpos="2"][ypos="1"]{
-    transform: translate(calc(2 * var(--tile-width)), calc(1 * var(--tile-height)));
+.outer[xpos="2"][ypos="0"]{
+    transform: translate(calc(2 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.tile[xpos="3"][ypos="1"]{
-    transform: translate(calc(3 * var(--tile-width)), calc(1 * var(--tile-height)));
+.outer[xpos="3"][ypos="0"]{
+    transform: translate(calc(3 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.tile[xpos="4"][ypos="1"]{
-    transform: translate(calc(4 * var(--tile-width)), calc(1 * var(--tile-height)));
+.outer[xpos="4"][ypos="0"]{
+    transform: translate(calc(4 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
 
-.tile[xpos="0"][ypos="2"]{
-    transform: translate(calc(0 * var(--tile-width)), calc(2 * var(--tile-height)));
+.outer[xpos="0"][ypos="1"]{
+    transform: translate(calc(0 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.tile[xpos="1"][ypos="2"]{
-    transform: translate(calc(1 * var(--tile-width)), calc(2 * var(--tile-height)));
+.outer[xpos="1"][ypos="1"]{
+    transform: translate(calc(1 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.tile[xpos="2"][ypos="2"]{
-    transform: translate(calc(2 * var(--tile-width)), calc(2 * var(--tile-height)));
+.outer[xpos="2"][ypos="1"]{
+    transform: translate(calc(2 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.tile[xpos="3"][ypos="2"]{
-    transform: translate(calc(3 * var(--tile-width)), calc(2 * var(--tile-height)));
+.outer[xpos="3"][ypos="1"]{
+    transform: translate(calc(3 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.tile[xpos="4"][ypos="2"]{
-    transform: translate(calc(4 * var(--tile-width)), calc(2 * var(--tile-height)));
-}
-
-.tile[xpos="0"][ypos="3"]{
-    transform: translate(calc(0 * var(--tile-width)), calc(3 * var(--tile-height)));
-}
-.tile[xpos="1"][ypos="3"]{
-    transform: translate(calc(1 * var(--tile-width)), calc(3 * var(--tile-height)));
-}
-.tile[xpos="2"][ypos="3"]{
-    transform: translate(calc(2 * var(--tile-width)), calc(3 * var(--tile-height)));
-}
-.tile[xpos="3"][ypos="3"]{
-    transform: translate(calc(3 * var(--tile-width)), calc(3 * var(--tile-height)));
-}
-.tile[xpos="4"][ypos="3"]{
-    transform: translate(calc(4 * var(--tile-width)), calc(3 * var(--tile-height)));
+.outer[xpos="4"][ypos="1"]{
+    transform: translate(calc(4 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
 
-.tile[xpos="0"][ypos="4"]{
-    transform: translate(calc(0 * var(--tile-width)), calc(4 * var(--tile-height)));
+.outer[xpos="0"][ypos="2"]{
+    transform: translate(calc(0 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.tile[xpos="1"][ypos="4"]{
-    transform: translate(calc(1 * var(--tile-width)), calc(4 * var(--tile-height)));
+.outer[xpos="1"][ypos="2"]{
+    transform: translate(calc(1 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.tile[xpos="2"][ypos="4"]{
-    transform: translate(calc(2 * var(--tile-width)), calc(4 * var(--tile-height)));
+.outer[xpos="2"][ypos="2"]{
+    transform: translate(calc(2 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.tile[xpos="3"][ypos="4"]{
-    transform: translate(calc(3 * var(--tile-width)), calc(4 * var(--tile-height)));
+.outer[xpos="3"][ypos="2"]{
+    transform: translate(calc(3 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.tile[xpos="4"][ypos="4"]{
-    transform: translate(calc(4 * var(--tile-width)), calc(4 * var(--tile-height)));
+.outer[xpos="4"][ypos="2"]{
+    transform: translate(calc(4 * var(--outer-width)), calc(2 * var(--outer-height)));
+}
+
+.outer[xpos="0"][ypos="3"]{
+    transform: translate(calc(0 * var(--outer-width)), calc(3 * var(--outer-height)));
+}
+.outer[xpos="1"][ypos="3"]{
+    transform: translate(calc(1 * var(--outer-width)), calc(3 * var(--outer-height)));
+}
+.outer[xpos="2"][ypos="3"]{
+    transform: translate(calc(2 * var(--outer-width)), calc(3 * var(--outer-height)));
+}
+.outer[xpos="3"][ypos="3"]{
+    transform: translate(calc(3 * var(--outer-width)), calc(3 * var(--outer-height)));
+}
+.outer[xpos="4"][ypos="3"]{
+    transform: translate(calc(4 * var(--outer-width)), calc(3 * var(--outer-height)));
+}
+
+.outer[xpos="0"][ypos="4"]{
+    transform: translate(calc(0 * var(--outer-width)), calc(4 * var(--outer-height)));
+}
+.outer[xpos="1"][ypos="4"]{
+    transform: translate(calc(1 * var(--outer-width)), calc(4 * var(--outer-height)));
+}
+.outer[xpos="2"][ypos="4"]{
+    transform: translate(calc(2 * var(--outer-width)), calc(4 * var(--outer-height)));
+}
+.outer[xpos="3"][ypos="4"]{
+    transform: translate(calc(3 * var(--outer-width)), calc(4 * var(--outer-height)));
+}
+.outer[xpos="4"][ypos="4"]{
+    transform: translate(calc(4 * var(--outer-width)), calc(4 * var(--outer-height)));
 }
 
 @keyframes appear {
@@ -178,6 +184,9 @@ html , body {
     opacity: 0;
     transform: scale(0); }
 
+50% {
+    opacity: 1;
+    transform: scale(1.5); } 
   100% {
     opacity: 1;
     transform: scale(1); } 
