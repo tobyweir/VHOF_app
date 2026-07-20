@@ -1,6 +1,7 @@
 :root {
     --outer-width: 100px;
     --outer-height: 100px;
+    --tile-merge-time: 0.3s;
 }
 
 html , body {
@@ -96,6 +97,7 @@ html , body {
     top: 0;
     left: 0;
     position: absolute;
+    transition: transform var(--tile-merge-time) ease-in-out;
 }
 
 

@@ -1,15 +1,3 @@
-//value
-//posx
-//posy
-//isAccumulator
-//tileEl
-//removeTileEl
-//updateTileX
-//updateTileY
-//updateTileIsAccumulator
-//updateTileValue
-
-
 class Tile {
     constructor(value, x, y, isAccumulator = false) {
         console.log(value , x , y);
@@ -38,6 +26,7 @@ class Tile {
     set value(value) {
         if (value) {
             this._value = value;
+            this._tileEl.querySelector("input").value = this._value;
         }
     }
 
@@ -53,6 +42,18 @@ class Tile {
 
     set isAccumulator(isAccumulator) {
         this._isAccumulator = isAccumulator;
+    }
+
+    get x() {
+        return this._x;
+    }
+
+    get y() {
+        return this._y;
+    }
+
+    get value() {
+        return parseInt(this._value);
     }
 
     remove() {
@@ -132,7 +133,8 @@ class Tile {
             let xpos = x.parentNode.getAttribute("xpos");
             let ypos = x.parentNode.getAttribute("ypos");
             console.log("clicked");
-            console.log(xpos, ypos);
+            //moveTileToEnd(grid[ypos][xpos] , currRotation);
+            fold( xpos , ypos);
         })(tile);
     }
 

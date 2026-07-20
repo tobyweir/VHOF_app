@@ -44,11 +44,13 @@ function getArrowText () {
             return Arrows.down;
         case 3:
             return Arrows.left;
-    }
+}
+
 }
 
 let currRotation = Rotations.right;
 function updateRotation () {
+    if (foldCount !== 0) return;
     if (currRotation === Rotations.left) {
         currRotation = Rotations.up;
     } else {
