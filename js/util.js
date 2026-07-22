@@ -27,6 +27,37 @@ const Rotations = {
     left : 3,
 }
 
+const FoldFunctions = {
+    add : (x , y) => x + y,
+    mult : (x , y) =>x * y,
+    div : (x , y) => x / y,
+    sub : (x , y) => x - y,
+}
+
+function getFoldFunction(val) {
+    switch (val) {
+        case "add":
+            return FoldFunctions.add;
+        case "sub":
+            return FoldFunctions.sub;
+        case "mult":
+            return FoldFunctions.mult;
+        case "div":
+            return FoldFunctions.div;
+    }
+}
+
+//contains animation speed for css and the delay time for the javascript
+const AnimationSpeeds = {
+    fast : ("0.15s" , 1000),
+    stan : ("0.3s" , 1000),
+    slow : ("0.45s" , 1000),
+}
+
+function getAnimSpeeds(value) {
+
+}
+
 //arrow icon to display on tiles
 const  Arrows  = {
     up:    '\u2191',

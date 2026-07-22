@@ -30,6 +30,26 @@ function getTiles (x , y) {
     }
 }
 
+
+const foldFnSelector = document.querySelector('.functionSelector');
+let currFoldFn = getFoldFunction(foldFnSelector.value);
+
+foldFnSelector.addEventListener('change', () => {
+  currFoldFn = getFoldFunction(foldFnSelector.value);
+  console.log(currFoldFn);
+});
+
+const animSpeedSelector = document.querySelector('.animationSpeedSelector');
+let currAnimSpeeds = getAnimSpeeds(animSpeedSelector.value);
+document.documentElement.style.setProperty('--tile-merge-time', '0.5s');
+let mergeTime = 750;
+
+animSpeedSelector.addEventListener('change', () => {
+  currAnimSpeeds= getAnimSpeeds(animSpeedSelector.value);
+  document.documentElement.style.setProperty('--tile-merge-time', '0.5s');
+  mergeTime = 750;
+});
+
 cellSetup()
 const rotateButton = document.querySelector('.rotateButton');
 rotateButton.addEventListener('click' , () => updateRotation() , false);

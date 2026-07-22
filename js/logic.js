@@ -22,8 +22,10 @@ function updateTileValue(value , x , y) {
     console.log(tile);
 }
 
-function mergeTileIntoTile(a , b , fn=(x , y) => x + y) { //a will get the new value and position, b will be removed
+function mergeTileIntoTile(a , b , fn) { //a will get the new value and position, b will be removed
+    console.log(fn);
     let newvalue = fn(a.value , b.value);
+    console.log(newvalue);
     grid[a.y][a.x] = undefined;
     a.x = b.x;
     a.y = b.y;
@@ -56,27 +58,27 @@ function removeEmptyCells (list) {
     return list.filter((x) => x !== undefined);
 }
 let foldCount = 0;
-let mergeTime = 750;
 
 function fold(x , y) {
     //disable rotation now?
+    let fn = currFoldFn;
     foldCount += 1;
     switch (currRotation) {
         case 0:
             //up
-            foldUp(x);
+            foldUp(x , fn);
             return;
         case 1:
             //right
-            foldRight(y);
+            foldRight(y , fn);
             return;
         case 2:
             //down
-            foldDown(x);
+            foldDown(x , fn);
             return;
         case 3:
             //left
-            foldLeft(y);
+            foldLeft(y , fn);
             return;
     }
     //figure out which direction to do the fold
@@ -89,11 +91,11 @@ function delay(ms) {
 }
 
 //named as in folding to the right(foldl), foldr begins at the right
-async function foldRight(y) {
+async function foldRight(y, fn) {
     let tileList = removeEmptyCells(grid[y]);
     while (tileList.length > 1) {
         await delay(mergeTime); 
-        mergeTileIntoTile(tileList[0] , tileList[1]);
+        mergeTileIntoTile(tileList[0] , tileList[1], fn);
         tileList = removeEmptyCells(grid[y]);
     }
     //console.log(JSON.parse(JSON.stringify(grid)));
@@ -106,11 +108,11 @@ async function foldRight(y) {
 }
 
 
-async function foldLeft(y){
+async function foldLeft(y, fn){
     let tileList = removeEmptyCells(grid[y]);
     while (tileList.length > 1) {
         await delay(mergeTime); 
-        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2]);
+        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2] , fn);
         tileList = removeEmptyCells(grid[y]);
     }
     await delay(mergeTime); 
@@ -118,11 +120,11 @@ async function foldLeft(y){
     foldCount -= 1;
 }
 
-async function foldUp(x){
+async function foldUp(x, fn){
     let tileList = removeEmptyCells(grid.map(a => a[x]));
     while (tileList.length > 1) {
         await delay(mergeTime); 
-        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2]);
+        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2], fn);
         tileList = removeEmptyCells(grid.map(a => a[x]));
     }
     await delay(mergeTime); 
@@ -130,11 +132,11 @@ async function foldUp(x){
     foldCount -= 1;
 }
 
-async function foldDown(x){
+async function foldDown(x, fn){
     let tileList = removeEmptyCells(grid.map(a => a[x]));
     while (tileList.length > 1) {
         await delay(mergeTime); 
-        mergeTileIntoTile(tileList[0] , tileList[1]);
+        mergeTileIntoTile(tileList[0] , tileList[1], fn);
         tileList = removeEmptyCells(grid.map(a => a[x]));
     }
     await delay(mergeTime); 
