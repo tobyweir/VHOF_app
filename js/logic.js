@@ -1,6 +1,17 @@
 let grid = Array.from({ length: 5 }, () => new Array(5).fill(undefined));
 console.log(grid);
 
+function clearGrid() {
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j ++) {
+            if (grid[i][j] !== undefined) {
+            grid[i][j].remove();
+            grid[i][j] = undefined;
+            }
+        }
+    }
+}
+
 function addTileToGrid(x , y ) {
     let tile = new Tile(0 , x , y);
     grid[y][x] = tile;
@@ -22,9 +33,11 @@ function updateTileValue(value , x , y) {
     console.log(tile);
 }
 
-function mergeTileIntoTile(a , b , fn) { //a will get the new value and position, b will be removed
+function mergeTileIntoTile(a , b , fn , reverse=false) { //a will get the new value and position, b will be removed
     console.log(fn);
     let newvalue = fn(a.value , b.value);
+    if (reverse === true) newvalue = fn(b.value , a.value);
+    
     console.log(newvalue);
     grid[a.y][a.x] = undefined;
     a.x = b.x;
@@ -59,6 +72,19 @@ function removeEmptyCells (list) {
 }
 let foldCount = 0;
 
+
+
+function activateHof(x , y) {
+    switch (currHof) {
+        case Hofs.fold:
+            fold(x , y);
+            return;
+        case Hofs.map:
+            return;
+        case Hofs.filter:
+            return;
+    }
+}
 function fold(x , y) {
     //disable rotation now?
     let fn = currFoldFn;
@@ -112,7 +138,7 @@ async function foldLeft(y, fn){
     let tileList = removeEmptyCells(grid[y]);
     while (tileList.length > 1) {
         await delay(mergeTime); 
-        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2] , fn);
+        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2] , fn, true);
         tileList = removeEmptyCells(grid[y]);
     }
     await delay(mergeTime); 
@@ -124,7 +150,7 @@ async function foldUp(x, fn){
     let tileList = removeEmptyCells(grid.map(a => a[x]));
     while (tileList.length > 1) {
         await delay(mergeTime); 
-        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2], fn);
+        mergeTileIntoTile(tileList[tileList.length - 1] , tileList[tileList.length - 2], fn, true);
         tileList = removeEmptyCells(grid.map(a => a[x]));
     }
     await delay(mergeTime); 

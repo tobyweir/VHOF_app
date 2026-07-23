@@ -1,10 +1,10 @@
 class Tile {
     constructor(value, x, y, isAccumulator = false) {
-        console.log(value , x , y);
+        console.log(value, x, y);
         this._value = value;
         this._x = x;
         this._y = y;
-        let inner = Tile.createTileEl(x , y);
+        let inner = Tile.createTileEl(x, y);
         inner.classList.add("appear");
         inner.addEventListener("animationend", () => {
             inner.classList.remove("appear");
@@ -53,7 +53,9 @@ class Tile {
     }
 
     get value() {
-        return parseInt(this._value);
+        let val = parseInt(this._value);
+        if (val) return val;
+        return 0;
     }
 
     remove() {
@@ -65,27 +67,33 @@ class Tile {
             this._tileEl.remove();
         }, { once: true });
     }
-    
+
     static createValue() {
         let value = document.createElement("input");
         value.classList.add("value");
         value.setAttribute("value", "0");
-        value.setAttribute("type", "number")
-
+        value.setAttribute("type", "text")
+        value.setAttribute("inputmode", "numeric");
+        
         value.addEventListener("input", () => {
             if (value.value.length > 5) {
                 value.value = value.value.slice(0, 5);
             }
-            console.log("change to input");
             updateTileValue(value.value , value.parentNode.parentNode.getAttribute("xpos") , value.parentNode.parentNode.getAttribute("ypos"));
         });
+
+
+        setInputFilter(value, function (value) {
+            return /^-?\d*$/.test(value);
+        }, "Please enter a valid Integer \n (Missing values default to 0)");
+
 
         value.addEventListener("click", (e) => {
             e.stopPropagation();
         });
 
         value.addEventListener("dblclick", (e) => {
-         e.stopPropagation();
+            e.stopPropagation();
         });
 
         value.addEventListener("focus", () => {
@@ -111,9 +119,9 @@ class Tile {
             tiles.forEach((x) => {
                 x.style.borderColor = "green"
                 let arrow = x.querySelector(".arrow");
-                if (arrow) {
-                 arrow.innerText = getArrowText();
-                 arrow.style.display = "block"
+                if (arrow && currHof === Hofs.fold) {
+                    arrow.innerText = getArrowText();
+                    arrow.style.display = "block"
                 }
             })
         })(tile);
@@ -125,16 +133,14 @@ class Tile {
                 x.style.borderColor = "grey"
                 let arrow = x.querySelector(".arrow");
                 if (arrow) {
-                 arrow.style.display = "none"
-             }
+                    arrow.style.display = "none"
+                }
             })
         })(tile);
         addEvent("dblclick", (x) => (event) => {
             let xpos = x.parentNode.getAttribute("xpos");
             let ypos = x.parentNode.getAttribute("ypos");
-            console.log("clicked");
-            //moveTileToEnd(grid[ypos][xpos] , currRotation);
-            fold( xpos , ypos);
+            activateHof(xpos , ypos);
         })(tile);
     }
 

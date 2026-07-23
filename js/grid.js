@@ -39,6 +39,14 @@ foldFnSelector.addEventListener('change', () => {
   console.log(currFoldFn);
 });
 
+const hofSelector = document.querySelector('.hofSelector');
+let currHof = getHof(hofSelector.value);
+
+hofSelector.addEventListener('change', () => {
+  currHof = getHof(hofSelector.value);
+  console.log(currHof);
+});
+
 const animSpeedSelector = document.querySelector('.animationSpeedSelector');
 let currAnimSpeeds = getAnimSpeeds(animSpeedSelector.value);
 document.documentElement.style.setProperty('--tile-merge-time', '0.5s');
@@ -53,3 +61,7 @@ animSpeedSelector.addEventListener('change', () => {
 cellSetup()
 const rotateButton = document.querySelector('.rotateButton');
 rotateButton.addEventListener('click' , () => updateRotation() , false);
+
+
+const clearAllButton = document.querySelector('.clearAllButton');
+clearAllButton.addEventListener('click' , () => clearGrid() , false);

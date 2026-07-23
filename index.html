@@ -11,6 +11,12 @@
     <h1>Fold</h1>
     <button type="button" class="rotateButton">Rotate Fold Direction</button>
 
+    <select class="hofSelector" autocomplete="off">
+        <option value="fold" selected>Fold</option>
+        <option value="map">Map</option>
+        <option value="filter">Filter</option>
+    </select>
+
     <select class="functionSelector" autocomplete="off">
         <option value="add" selected>Addition</option>
         <option value="sub">Subtraction</option>
@@ -23,6 +29,8 @@
         <option value="standard" selected>Standard</option>
         <option value="slow">Slow</option>
     </select>
+
+    <button type="button" class="clearAllButton">Clear All Tiles</button>
 
     <div class="grid">
         <div class="row" rowY="0">
