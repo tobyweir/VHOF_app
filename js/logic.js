@@ -1,5 +1,4 @@
 let grid = Array.from({ length: 5 }, () => new Array(5).fill(undefined));
-console.log(grid);
 
 function clearGrid() {
     for (let i = 0; i < grid.length; i++) {
@@ -30,15 +29,11 @@ function updateTilePos(x , y, tile) {
 function updateTileValue(value , x , y) {
     let tile = grid[y][x]
     tile.value = value;
-    console.log(tile);
 }
 
 function mergeTileIntoTile(a , b , fn , reverse=false) { //a will get the new value and position, b will be removed
-    console.log(fn);
     let newvalue = fn(a.value , b.value);
     if (reverse === true) newvalue = fn(b.value , a.value);
-    
-    console.log(newvalue);
     grid[a.y][a.x] = undefined;
     a.x = b.x;
     a.y = b.y;
@@ -148,7 +143,6 @@ function filter(x , y) {
         } else {
             x.shake();
         }
-        //add animation?
     }
     if (currRotation === Rotations.left || currRotation === Rotations.right) {
         mapRow(y , fn , updateTile);

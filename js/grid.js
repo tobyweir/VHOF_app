@@ -111,3 +111,14 @@ const rightVLeftButton = document.querySelector('.rightVLeftButton');
 rightVLeftButton.addEventListener('click' , () => {initLeftVsRight()} , false);
 const randomButton = document.querySelector('.randomButton');
 randomButton.addEventListener ('click' , () => {initRandom()} , false);
+
+const hofInfoBox = document.querySelector('.HOF-info');
+const hofInfoInner = hofInfoBox.querySelector('.info-box');
+insertButtonFn('x' , 'closeInfoBoxButton' , (button , event) => {
+    hofInfoBox.style.display = "none";
+})(hofInfoInner);
+
+const hofInfoLink = document.querySelector('.open-HOF-Info');
+hofInfoLink.addEventListener('click' , (x) => {
+    hofInfoBox.style.display = "flex";
+})

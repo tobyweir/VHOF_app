@@ -151,7 +151,6 @@ function updateRotation () {
     } else {
         currRotation += 1;
     }
-    console.log(currRotation)
 }
 
 

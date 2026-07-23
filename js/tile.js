@@ -1,6 +1,5 @@
 class Tile {
     constructor(value, x, y, isAccumulator = false) {
-        console.log(value, x, y);
         this._value = value;
         this._x = x;
         this._y = y;

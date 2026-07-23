@@ -12,6 +12,36 @@ body {
     text-align: center;
 }
 
+.info-box-container{
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 100;
+    opacity:90;
+    pointer-events: all;
+    justify-content: center;
+    align-items: baseline;
+    padding: 100px;
+}
+
+.info-box{
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+    z-index: 101;
+    padding: 15px;
+    overflow: auto;
+    max-width: 60%;
+    max-height: 60%;
+}
+
 .grid {
     width: 500px;
     height: 500xpx;
@@ -60,6 +90,13 @@ body {
     right: 1px;
     z-index: 1;
     display: none;
+}
+
+.closeInfoBoxButton {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 102;
 }
 
 
