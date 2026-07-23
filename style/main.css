@@ -62,6 +62,8 @@ body {
     display: none;
 }
 
+
+
 .arrow {
     display: none;
     -webkit-user-select: none;
@@ -224,7 +226,7 @@ body {
 
 
 .appear {
-    animation: appear 0.2s ease;
+    animation: appear calc(var(--tile-merge-time) * 0.66) ease;
 }
 
 @keyframes disappear {
@@ -240,15 +242,15 @@ body {
 }
 
 .spin {
-    animation: spin 0.5s
+    animation: spin calc(var(--tile-merge-time) * 1.67)
 }
 
 .shake {
-    animation: shake 0.5s
+    animation: shake calc(var(--tile-merge-time) * 1.67)
 }
 
 .disappear {
-    animation: disappear 0.10s ease;
+    animation: disappear calc(var(--tile-merge-time) * 0.33) ease;
     animation-fill-mode: forwards;
 }
 

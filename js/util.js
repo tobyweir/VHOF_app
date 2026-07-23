@@ -106,13 +106,20 @@ function getFilterFunction(val) {
 
 //contains animation speed for css and the delay time for the javascript
 const AnimationSpeeds = {
-    fast : ("0.15s" , 1000),
-    stan : ("0.3s" , 1000),
-    slow : ("0.45s" , 1000),
+    fast : ["0.1s" , 250],
+    stan : ["0.3s" , 750],
+    slow : ["0.6s" , 1250],
 }
 
-function getAnimSpeeds(value) {
-
+function getAnimSpeeds(val) {
+    switch (val) {
+        case "fast":
+            return AnimationSpeeds.fast;
+        case "standard":
+            return AnimationSpeeds.stan;   
+        case "slow":
+            return AnimationSpeeds.slow;  
+    }
 }
 
 //arrow icon to display on tiles

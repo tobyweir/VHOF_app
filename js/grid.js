@@ -88,13 +88,13 @@ hofSelector.addEventListener('change', () => {
 
 const animSpeedSelector = document.querySelector('.animationSpeedSelector');
 let currAnimSpeeds = getAnimSpeeds(animSpeedSelector.value);
-document.documentElement.style.setProperty('--tile-merge-time', '0.5s');
-let mergeTime = 750;
+document.documentElement.style.setProperty('--tile-merge-time', currAnimSpeeds[0]);
+let mergeTime = currAnimSpeeds[1];
 
 animSpeedSelector.addEventListener('change', () => {
     currAnimSpeeds = getAnimSpeeds(animSpeedSelector.value);
-    document.documentElement.style.setProperty('--tile-merge-time', '0.5s');
-    mergeTime = 750;
+    document.documentElement.style.setProperty('--tile-merge-time', currAnimSpeeds[0]);
+    mergeTime = currAnimSpeeds[1];
 });
 
 cellSetup()
