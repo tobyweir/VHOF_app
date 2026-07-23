@@ -12,8 +12,8 @@ function clearGrid() {
     }
 }
 
-function addTileToGrid(x , y ) {
-    let tile = new Tile(0 , x , y);
+function addTileToGrid(x , y , val=0) {
+    let tile = new Tile(val , x , y);
     grid[y][x] = tile;
 }
 
@@ -216,4 +216,29 @@ async function foldDown(x, fn){
     moveTileToEnd(tileList[tileList.length - 1] , Rotations.down);
     foldCount -= 1;
 
+}
+
+function initSandbox() {
+    clearGrid();
+}
+
+function initLeftVsRight(){
+    clearGrid();
+    for (let i = 0; i < grid[0].length; i ++) {
+        addTileToGrid(i , 0 , i + 1);
+        addTileToGrid(i , 1 , i + 1);
+    }
+}
+
+function initRandom(){
+    clearGrid();
+    for (let i = 0; i < grid.length; i ++) {
+        for (let j = 0; j < grid[i].length; j++) {
+            if (Math.random() < 0.5 ? false : true) {
+                let ranVal = Math.floor(Math.random() * 99) + 1;
+                ranVal *= Math.random() < 0.5 ? -1 : 1;
+                addTileToGrid(j , i , ranVal);
+            }
+        }
+    }
 }

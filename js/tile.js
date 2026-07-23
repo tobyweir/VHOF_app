@@ -20,6 +20,7 @@ class Tile {
         this._tileEl = outer;
         this._isAccumulator = isAccumulator;
         let grid = document.querySelector(".tile-container");
+        this._tileEl.querySelector("input").value = this._value;
         grid.append(this._tileEl);
     }
 

@@ -1,90 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>VHOF</title>
 
-    <link href="style/main.css" rel="stylesheet" type="text/css">
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-
     <h1>Visualising Higher Order Functions</h1>
-    <button type="button" class="rotateButton">Change Rotation</button>
-
-    <select class="hofSelector" autocomplete="off">
+    <div>
+      <button type="button" class="rotateButton">Change Rotation</button>
+      <button type="button" class="clearAllButton">Clear All Tiles</button>
+    </div>
+    <div>
+      <span>Higher Order Function:</span>
+      <select class="hofSelector" autocomplete="off">
         <option value="fold" selected>Fold</option>
         <option value="map">Map</option>
         <option value="filter">Filter</option>
-    </select>
-
-    <select class="foldSelector" autocomplete="off">
+      </select>
+      <span>Function To Apply:</span>
+      <select class="foldSelector" autocomplete="off">
         <option value="add" selected>x + y</option>
         <option value="sub">x - y</option>
         <option value="mult">x * y</option>
         <option value="div">x / y</option>
-    </select>
+      </select>
 
-    <select class="mapSelector" autocomplete="off">
+      <select class="mapSelector" autocomplete="off">
         <option value="plus1" selected>x + 1</option>
         <option value="minus1">x - 1</option>
         <option value="double">x * 2</option>
         <option value="triple">x * 3</option>
-    </select>
+      </select>
 
-    <select class="filterSelector" autocomplete="off">
+      <select class="filterSelector" autocomplete="off">
         <option value="odds" selected>x is odd</option>
         <option value="evens">x is even</option>
         <option value="greaterThan100">x > 100</option>
         <option value="lessThan100">x < 100</option>
-    </select>
-
-    <select class="animationSpeedSelector" autocomplete="off">
+      </select>
+      <span>Animation Speed:</span>
+      <select class="animationSpeedSelector" autocomplete="off">
         <option value="fast">Fast</option>
         <option value="standard" selected>Standard</option>
         <option value="slow">Slow</option>
-    </select>
-
-    <button type="button" class="clearAllButton">Clear All Tiles</button>
-
+      </select>
+    </div>
+    <div>
+      <span>Presets:</span>
+      <button type="button" class="sandboxButton">Sandbox</button>
+      <button type="button" class="rightVLeftButton">Right vs Left Example</button>
+      <button type="button" class="randomButton">Random</button>
+    </div>
     <div class="grid">
-        <div class="row" rowY="0">
-          <div class="cell" cellX="0"></div>
-          <div class="cell" cellX="1"></div>
-          <div class="cell" cellX="2"></div>
-          <div class="cell" cellX="3"></div>
-          <div class="cell" cellX="4"></div>
-        </div>
-        <div class="row" rowY="1">
-          <div class="cell" cellX="0"></div>
-          <div class="cell" cellX="1"></div>
-          <div class="cell" cellX="2"></div>
-          <div class="cell" cellX="3"></div>
-          <div class="cell" cellX="4"></div>
-        </div>
-        <div class="row" rowY="2">
-          <div class="cell" cellX="0"></div>
-          <div class="cell" cellX="1"></div>
-          
-          <div class="cell" cellX="2"></div>
-          <div class="cell" cellX="3"></div>
-          <div class="cell" cellX="4"></div>
-        </div>
-        <div class="row" rowY="3">
-          <div class="cell" cellX="0"></div>
-          <div class="cell" cellX="1"></div>
-          <div class="cell" cellX="2"></div>
-          <div class="cell" cellX="3"></div>
-          <div class="cell" cellX="4"></div>
-        </div>
-        <div class="row" rowY="4">
-          <div class="cell" cellX="0"></div>
-          <div class="cell" cellX="1"></div>
-          <div class="cell" cellX="2"></div>
-          <div class="cell" cellX="3"></div>
-          <div class="cell" cellX="4"></div>
-        </div>
-      <div class="tile-container"></div>
+      <div class="row" rowY="0">
+        <div class="cell" cellX="0"></div>
+        <div class="cell" cellX="1"></div>
+        <div class="cell" cellX="2"></div>
+        <div class="cell" cellX="3"></div>
+        <div class="cell" cellX="4"></div>
       </div>
+      <div class="row" rowY="1">
+        <div class="cell" cellX="0"></div>
+        <div class="cell" cellX="1"></div>
+        <div class="cell" cellX="2"></div>
+        <div class="cell" cellX="3"></div>
+        <div class="cell" cellX="4"></div>
+      </div>
+      <div class="row" rowY="2">
+        <div class="cell" cellX="0"></div>
+        <div class="cell" cellX="1"></div>
+        <div class="cell" cellX="2"></div>
+        <div class="cell" cellX="3"></div>
+        <div class="cell" cellX="4"></div>
+      </div>
+      <div class="row" rowY="3">
+        <div class="cell" cellX="0"></div>
+        <div class="cell" cellX="1"></div>
+        <div class="cell" cellX="2"></div>
+        <div class="cell" cellX="3"></div>
+        <div class="cell" cellX="4"></div>
+      </div>
+      <div class="row" rowY="4">
+        <div class="cell" cellX="0"></div>
+        <div class="cell" cellX="1"></div>
+        <div class="cell" cellX="2"></div>
+        <div class="cell" cellX="3"></div>
+        <div class="cell" cellX="4"></div>
+      </div>
+      <div class="tile-container"></div>
+    </div>
 
     <script src="js/util.js"></script>
     <script src="js/tile.js"></script>

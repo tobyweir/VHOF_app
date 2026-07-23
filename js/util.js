@@ -107,7 +107,7 @@ function getFilterFunction(val) {
 //contains animation speed for css and the delay time for the javascript
 const AnimationSpeeds = {
     fast : ["0.1s" , 250],
-    stan : ["0.3s" , 750],
+    stan : ["0.3s" , 500],
     slow : ["0.6s" , 1250],
 }
 

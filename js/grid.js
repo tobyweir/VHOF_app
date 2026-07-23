@@ -104,3 +104,10 @@ rotateButton.addEventListener('click', () => updateRotation(), false);
 
 const clearAllButton = document.querySelector('.clearAllButton');
 clearAllButton.addEventListener('click', () => clearGrid(), false);
+
+const sandboxButton = document.querySelector('.sandboxButton');
+sandboxButton.addEventListener('click' , () => {initSandbox()}, false);
+const rightVLeftButton = document.querySelector('.rightVLeftButton');
+rightVLeftButton.addEventListener('click' , () => {initLeftVsRight()} , false);
+const randomButton = document.querySelector('.randomButton');
+randomButton.addEventListener ('click' , () => {initRandom()} , false);
