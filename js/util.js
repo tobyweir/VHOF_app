@@ -51,6 +51,20 @@ const FoldFunctions = {
     sub : (x , y) => x - y,
 }
 
+const MapFunctions = {
+    plus1 : (x) => x + 1,
+    minus1 : (x) =>x - 1,
+    double : (x) => x * 2,
+    triple : (x) => x * 3,
+}
+
+const FilterFunctions = {
+    odd : (x) => x % 2 !== 0,
+    even : (x) => x % 2 === 0,
+    greaterThan100 : (x) => x > 100,
+    lessThan100 : (x) => x < 100,
+}
+
 function getFoldFunction(val) {
     switch (val) {
         case "add":
@@ -61,6 +75,32 @@ function getFoldFunction(val) {
             return FoldFunctions.mult;
         case "div":
             return FoldFunctions.div;
+    }
+}
+
+function getMapFunction(val) {
+    switch (val) {
+        case "plus1":
+            return MapFunctions.plus1;
+        case "minus1":
+            return MapFunctions.minus1;
+        case "double":
+            return MapFunctions.double;
+        case "triple":
+            return MapFunctions.triple;
+    }
+}
+
+function getFilterFunction(val) {
+    switch (val) {
+        case "odds":
+            return FilterFunctions.odd;
+        case "evens":
+            return FilterFunctions.even;
+        case "greaterThan100":
+            return FilterFunctions.greaterThan100;
+        case "lessThan100":
+            return FilterFunctions.lessThan100;
     }
 }
 

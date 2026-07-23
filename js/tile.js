@@ -58,6 +58,22 @@ class Tile {
         return 0;
     }
 
+    spin() {
+        let inner = this._tileEl.querySelector(".inner");
+        inner.classList.remove("appear");
+        inner.classList.add("spin");
+        inner.addEventListener("animationend", () => {
+            inner.classList.remove("spin");
+        }, { once: true });
+    }
+
+    shake() {
+        let inner = this._tileEl.querySelector(".inner");
+        inner.classList.add("shake");
+        inner.addEventListener("animationend", () => {
+            inner.classList.remove("shake");
+        }, { once: true });
+    }
     remove() {
         let inner = this._tileEl.querySelector(".inner");
         inner.classList.remove("appear");
@@ -140,6 +156,7 @@ class Tile {
         addEvent("dblclick", (x) => (event) => {
             let xpos = x.parentNode.getAttribute("xpos");
             let ypos = x.parentNode.getAttribute("ypos");
+            console.log("double click on tile" , xpos , ypos);
             activateHof(xpos , ypos);
         })(tile);
     }

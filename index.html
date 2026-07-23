@@ -8,8 +8,8 @@
   </head>
   <body>
 
-    <h1>Fold</h1>
-    <button type="button" class="rotateButton">Rotate Fold Direction</button>
+    <h1>Visualising Higher Order Functions</h1>
+    <button type="button" class="rotateButton">Change Rotation</button>
 
     <select class="hofSelector" autocomplete="off">
         <option value="fold" selected>Fold</option>
@@ -17,11 +17,25 @@
         <option value="filter">Filter</option>
     </select>
 
-    <select class="functionSelector" autocomplete="off">
-        <option value="add" selected>Addition</option>
-        <option value="sub">Subtraction</option>
-        <option value="mult">Multiplication</option>
-        <option value="div">Division</option>
+    <select class="foldSelector" autocomplete="off">
+        <option value="add" selected>x + y</option>
+        <option value="sub">x - y</option>
+        <option value="mult">x * y</option>
+        <option value="div">x / y</option>
+    </select>
+
+    <select class="mapSelector" autocomplete="off">
+        <option value="plus1" selected>x + 1</option>
+        <option value="minus1">x - 1</option>
+        <option value="double">x * 2</option>
+        <option value="triple">x * 3</option>
+    </select>
+
+    <select class="filterSelector" autocomplete="off">
+        <option value="odds" selected>x is odd</option>
+        <option value="evens">x is even</option>
+        <option value="greaterThan100">x > 100</option>
+        <option value="lessThan100">x < 100</option>
     </select>
 
     <select class="animationSpeedSelector" autocomplete="off">

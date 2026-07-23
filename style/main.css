@@ -4,21 +4,23 @@
     --tile-merge-time: 0.3s;
 }
 
-html , body {
+html,
+body {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
     text-align: center;
 }
-.grid{
+
+.grid {
     width: 500px;
     height: 500xpx;
     aspect-ratio: 1;
     position: relative;
     top: 0;
-    left: 0; 
-    right: 0; 
-    margin-inline: auto; 
+    left: 0;
+    right: 0;
+    margin-inline: auto;
 
     background-color: #cdc1b5;
     border: 6px solid #bbada0;
@@ -27,7 +29,7 @@ html , body {
     flex-direction: column;
 }
 
-.row{
+.row {
     display: flex;
     flex-direction: row;
     flex: 1 1 0;
@@ -35,7 +37,7 @@ html , body {
     background-color: rebeccapurple;
 }
 
-.cell{
+.cell {
     display: flex;
     position: relative;
     flex: 1 1 0;
@@ -46,13 +48,13 @@ html , body {
     align-items: center;
 }
 
-.addTileButton{
+.addTileButton {
     margin: 0 auto;
     height: fit-content;
     display: none;
 }
 
-.removeTileButton{
+.removeTileButton {
     position: absolute;
     top: 1px;
     right: 1px;
@@ -60,7 +62,7 @@ html , body {
     display: none;
 }
 
-.arrow{
+.arrow {
     display: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -80,10 +82,12 @@ html , body {
     padding: 0;
     margin: 0;
 }
+
 .tile-container {
     top: 0;
     left: 0;
 }
+
 .tile {
     width: 90px;
     height: 90px;
@@ -101,118 +105,196 @@ html , body {
 }
 
 
-.outer[xpos="0"][ypos="0"]{
+.outer[xpos="0"][ypos="0"] {
     transform: translate(calc(0 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.outer[xpos="1"][ypos="0"]{
+
+.outer[xpos="1"][ypos="0"] {
     transform: translate(calc(1 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.outer[xpos="2"][ypos="0"]{
+
+.outer[xpos="2"][ypos="0"] {
     transform: translate(calc(2 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.outer[xpos="3"][ypos="0"]{
+
+.outer[xpos="3"][ypos="0"] {
     transform: translate(calc(3 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
-.outer[xpos="4"][ypos="0"]{
+
+.outer[xpos="4"][ypos="0"] {
     transform: translate(calc(4 * var(--outer-width)), calc(0 * var(--outer-height)));
 }
 
-.outer[xpos="0"][ypos="1"]{
+.outer[xpos="0"][ypos="1"] {
     transform: translate(calc(0 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.outer[xpos="1"][ypos="1"]{
+
+.outer[xpos="1"][ypos="1"] {
     transform: translate(calc(1 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.outer[xpos="2"][ypos="1"]{
+
+.outer[xpos="2"][ypos="1"] {
     transform: translate(calc(2 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.outer[xpos="3"][ypos="1"]{
+
+.outer[xpos="3"][ypos="1"] {
     transform: translate(calc(3 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
-.outer[xpos="4"][ypos="1"]{
+
+.outer[xpos="4"][ypos="1"] {
     transform: translate(calc(4 * var(--outer-width)), calc(1 * var(--outer-height)));
 }
 
-.outer[xpos="0"][ypos="2"]{
+.outer[xpos="0"][ypos="2"] {
     transform: translate(calc(0 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.outer[xpos="1"][ypos="2"]{
+
+.outer[xpos="1"][ypos="2"] {
     transform: translate(calc(1 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.outer[xpos="2"][ypos="2"]{
+
+.outer[xpos="2"][ypos="2"] {
     transform: translate(calc(2 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.outer[xpos="3"][ypos="2"]{
+
+.outer[xpos="3"][ypos="2"] {
     transform: translate(calc(3 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
-.outer[xpos="4"][ypos="2"]{
+
+.outer[xpos="4"][ypos="2"] {
     transform: translate(calc(4 * var(--outer-width)), calc(2 * var(--outer-height)));
 }
 
-.outer[xpos="0"][ypos="3"]{
+.outer[xpos="0"][ypos="3"] {
     transform: translate(calc(0 * var(--outer-width)), calc(3 * var(--outer-height)));
 }
-.outer[xpos="1"][ypos="3"]{
+
+.outer[xpos="1"][ypos="3"] {
     transform: translate(calc(1 * var(--outer-width)), calc(3 * var(--outer-height)));
 }
-.outer[xpos="2"][ypos="3"]{
+
+.outer[xpos="2"][ypos="3"] {
     transform: translate(calc(2 * var(--outer-width)), calc(3 * var(--outer-height)));
 }
-.outer[xpos="3"][ypos="3"]{
+
+.outer[xpos="3"][ypos="3"] {
     transform: translate(calc(3 * var(--outer-width)), calc(3 * var(--outer-height)));
 }
-.outer[xpos="4"][ypos="3"]{
+
+.outer[xpos="4"][ypos="3"] {
     transform: translate(calc(4 * var(--outer-width)), calc(3 * var(--outer-height)));
 }
 
-.outer[xpos="0"][ypos="4"]{
+.outer[xpos="0"][ypos="4"] {
     transform: translate(calc(0 * var(--outer-width)), calc(4 * var(--outer-height)));
 }
-.outer[xpos="1"][ypos="4"]{
+
+.outer[xpos="1"][ypos="4"] {
     transform: translate(calc(1 * var(--outer-width)), calc(4 * var(--outer-height)));
 }
-.outer[xpos="2"][ypos="4"]{
+
+.outer[xpos="2"][ypos="4"] {
     transform: translate(calc(2 * var(--outer-width)), calc(4 * var(--outer-height)));
 }
-.outer[xpos="3"][ypos="4"]{
+
+.outer[xpos="3"][ypos="4"] {
     transform: translate(calc(3 * var(--outer-width)), calc(4 * var(--outer-height)));
 }
-.outer[xpos="4"][ypos="4"]{
+
+.outer[xpos="4"][ypos="4"] {
     transform: translate(calc(4 * var(--outer-width)), calc(4 * var(--outer-height)));
 }
 
 @keyframes appear {
-  0% {
-    opacity: 0;
-    transform: scale(0); }
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
 
-50% {
-    opacity: 1;
-    transform: scale(1.5); } 
-  100% {
-    opacity: 1;
-    transform: scale(1); } 
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 
 .appear {
-  animation: appear 0.2s ease;
+    animation: appear 0.2s ease;
 }
 
 @keyframes disappear {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0);
-  }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.spin {
+    animation: spin 0.5s
+}
+
+.shake {
+    animation: shake 0.5s
 }
 
 .disappear {
-  animation: disappear 0.10s ease;
-  animation-fill-mode: forwards;
+    animation: disappear 0.10s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
+/* https://www.w3schools.com/howto/howto_css_shake_image.asp */
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}

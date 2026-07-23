@@ -80,11 +80,14 @@ function activateHof(x , y) {
             fold(x , y);
             return;
         case Hofs.map:
+            map(x , y);
             return;
         case Hofs.filter:
+            filter(x , y);
             return;
     }
 }
+
 function fold(x , y) {
     //disable rotation now?
     let fn = currFoldFn;
@@ -111,6 +114,50 @@ function fold(x , y) {
     //retreive that list of tiles from grid
     //begin merging the tiles step by step
 }
+
+function map(x , y) {
+    let fn = currMapFn;
+    
+    let updateTile = (x) => {
+        x.value = fn(x.value);
+        x.spin();
+    }
+
+    if (currRotation === Rotations.left || currRotation === Rotations.right) {
+        mapRow(y , fn , updateTile);
+    } else {
+        mapColumn(x , fn , updateTile);
+    }
+}
+
+function mapColumn(x , fn , updateTile) {
+    let tileList = removeEmptyCells(grid.map(a => a[x]));
+    tileList.map(updateTile)
+}
+
+function mapRow(y , fn , updateTile) {
+    let tileList = removeEmptyCells(grid[y]);
+    tileList.map(updateTile)
+}
+
+function filter(x , y) {
+    let fn = currFilterFn;
+    let updateTile = (x) => {
+        if (fn(x.value) === true) {
+            removeTileFromGrid(x.x , x.y);
+        } else {
+            x.shake();
+        }
+        //add animation?
+    }
+    if (currRotation === Rotations.left || currRotation === Rotations.right) {
+        mapRow(y , fn , updateTile);
+    } else {
+        mapColumn(x , fn , updateTile);
+    }
+}
+
+
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
