@@ -102,6 +102,8 @@ body {
 
 
 .arrow {
+    bottom: 0px;
+    position: absolute;
     display: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -110,17 +112,18 @@ body {
 }
 
 .value {
-    width: 40px;
+    width: 100%;
     text-align: center;
-    font: inherit;
-    color: inherit;
+    font-size: 1.3rem;
     appearance: textfield;
     border: none;
     background: transparent;
     outline: none;
     padding: 0;
     margin: 0;
+    overflow: auto;
 }
+
 
 .tile-container {
     top: 0;
@@ -130,6 +133,7 @@ body {
 .tile {
     width: 90px;
     height: 90px;
+    display: flex;
     background-color: yellow;
     border: 5px solid #bbada0;
     justify-content: center;

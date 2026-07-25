@@ -106,19 +106,38 @@ const clearAllButton = document.querySelector('.clearAllButton');
 clearAllButton.addEventListener('click', () => clearGrid(), false);
 
 const sandboxButton = document.querySelector('.sandboxButton');
-sandboxButton.addEventListener('click' , () => {initSandbox()}, false);
+sandboxButton.addEventListener('click', () => { initSandbox() }, false);
 const rightVLeftButton = document.querySelector('.rightVLeftButton');
-rightVLeftButton.addEventListener('click' , () => {initLeftVsRight()} , false);
+rightVLeftButton.addEventListener('click', () => { initLeftVsRight() }, false);
 const randomButton = document.querySelector('.randomButton');
-randomButton.addEventListener ('click' , () => {initRandom()} , false);
+randomButton.addEventListener('click', () => { initRandom() }, false);
 
-const hofInfoBox = document.querySelector('.HOF-info');
-const hofInfoInner = hofInfoBox.querySelector('.info-box');
-insertButtonFn('x' , 'closeInfoBoxButton' , (button , event) => {
-    hofInfoBox.style.display = "none";
-})(hofInfoInner);
+let links = ["HOF" , "Fold" , "MapFilter" , "Website"];
+function setupInfoBoxes(list) {
+    for (let i = 0; i < list.length; i++) {
+        let container = document.querySelector(`.${list[i]}-Info`);
+        let info = container.querySelector('.info-box');
+        insertButtonFn('x', 'closeInfoBoxButton', (button, event) => {
+            container.style.display = "none";
+        })(info);
+        let link = document.querySelector(`.open-${list[i]}-Info`);
+        link.addEventListener('click', (x) => {
+            x.preventDefault();
+            container.style.display = "flex";
+        })
+    }
+}
 
-const hofInfoLink = document.querySelector('.open-HOF-Info');
-hofInfoLink.addEventListener('click' , (x) => {
-    hofInfoBox.style.display = "flex";
-})
+setupInfoBoxes(links);
+
+// const hofInfoBox = document.querySelector('.HOF-info');
+// const hofInfoInner = hofInfoBox.querySelector('.info-box');
+// insertButtonFn('x', 'closeInfoBoxButton', (button, event) => {
+//     hofInfoBox.style.display = "none";
+// })(hofInfoInner);
+
+// const hofInfoLink = document.querySelector('.open-HOF-Info');
+// hofInfoLink.addEventListener('click', (x) => {
+//     x.preventDefault();
+//     hofInfoBox.style.display = "flex";
+// })

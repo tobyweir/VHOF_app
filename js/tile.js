@@ -24,10 +24,8 @@ class Tile {
     }
 
     set value(value) {
-        if (value) {
-            this._value = value;
-            this._tileEl.querySelector("input").value = this._value;
-        }
+        this._value = value
+        this._tileEl.querySelector("input").value = this._value
     }
 
     set x(x) {
@@ -53,8 +51,8 @@ class Tile {
     }
 
     get value() {
-        let val = parseInt(this._value);
-        if (val) return val;
+        let val = parseFloat(this._value);
+        if (val !== NaN) return val;
         return 0;
     }
 
@@ -90,17 +88,17 @@ class Tile {
         value.setAttribute("value", "0");
         value.setAttribute("type", "text")
         value.setAttribute("inputmode", "numeric");
-        
+
         value.addEventListener("input", () => {
-            if (value.value.length > 5) {
-                value.value = value.value.slice(0, 5);
+            if (value.value.length > 6) {
+                value.value = value.value.slice(0, 6);
             }
-            updateTileValue(value.value , value.parentNode.parentNode.getAttribute("xpos") , value.parentNode.parentNode.getAttribute("ypos"));
+            updateTileValue(value.value, value.parentNode.parentNode.getAttribute("xpos"), value.parentNode.parentNode.getAttribute("ypos"));
         });
 
 
         setInputFilter(value, function (value) {
-            return /^-?\d*$/.test(value);
+            return /^-?\d*\.?\d*$/.test(value);
         }, "Please enter a valid Integer \n (Missing values default to 0)");
 
 
@@ -156,8 +154,8 @@ class Tile {
         addEvent("dblclick", (x) => (event) => {
             let xpos = x.parentNode.getAttribute("xpos");
             let ypos = x.parentNode.getAttribute("ypos");
-            console.log("double click on tile" , xpos , ypos);
-            activateHof(xpos , ypos);
+            console.log("double click on tile", xpos, ypos);
+            activateHof(xpos, ypos);
         })(tile);
     }
 
