@@ -7,134 +7,190 @@
     <link href="style/main.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Visualising Higher Order Functions</h1>
-    <div>
-      <button type="button" class="rotateButton">Change Rotation</button>
-      <button type="button" class="clearAllButton">Clear All Tiles</button>
-    </div>
-    <div>
-      <span>Higher Order Function:</span>
-      <select class="hofSelector" autocomplete="off">
-        <option value="fold" selected>Fold</option>
-        <option value="map">Map</option>
-        <option value="filter">Filter</option>
-      </select>
-      <span>Function To Apply:</span>
-      <select class="foldSelector" autocomplete="off">
-        <option value="add" selected>x + y</option>
-        <option value="sub">x - y</option>
-        <option value="mult">x * y</option>
-        <option value="div">x / y</option>
-      </select>
+    <div class="layout">
+      <!-- controls -->
+      <aside class="leftColumn">
+        <div class="optionMenu">
+          <h2>Controls</h2>
+          <div class="controlButtons">
+            <button type="button" class="rotateButton">Change Rotation</button>
+            <button type="button" class="clearAllButton">
+              Clear All Tiles
+            </button>
+          </div>
+        </div>
 
-      <select class="mapSelector" autocomplete="off">
-        <option value="plus1" selected>x + 1</option>
-        <option value="minus1">x - 1</option>
-        <option value="double">x * 2</option>
-        <option value="triple">x * 3</option>
-      </select>
+        <!-- selectors -->
+        <div class="optionMenu">
+          <h2>Options</h2>
+          <div class="selector">
+            <label> Higher Order Function </label>
+            <select class="hofSelector" autocomplete="off">
+              <option value="fold" selected>Fold</option>
+              <option value="map">Map</option>
+              <option value="filter">Filter</option>
+            </select>
+          </div>
 
-      <select class="filterSelector" autocomplete="off">
-        <option value="odds" selected>x is odd</option>
-        <option value="evens">x is even</option>
-        <option value="greaterThan100">x > 100</option>
-        <option value="lessThan100">x < 100</option>
-      </select>
-      <span>Animation Speed:</span>
-      <select class="animationSpeedSelector" autocomplete="off">
-        <option value="fast">Fast</option>
-        <option value="standard" selected>Standard</option>
-        <option value="slow">Slow</option>
-      </select>
+          <div class="selector">
+            <label> Applied Function </label>
+            <select class="foldSelector" autocomplete="off">
+              <option value="add" selected>x + y</option>
+              <option value="sub">x - y</option>
+              <option value="mult">x * y</option>
+              <option value="div">x / y</option>
+            </select>
+
+            <select class="mapSelector" autocomplete="off">
+              <option value="plus1" selected>x + 1</option>
+              <option value="minus1">x - 1</option>
+              <option value="double">x * 2</option>
+              <option value="triple">x * 3</option>
+            </select>
+
+            <select class="filterSelector" autocomplete="off">
+              <option value="odds" selected>x is odd</option>
+              <option value="evens">x is even</option>
+              <option value="greaterThan100">x > 100</option>
+              <option value="lessThan100">x < 100</option>
+            </select>
+          </div>
+
+          <div class="selector">
+            <label> Animation Speed </label>
+            <select class="animationSpeedSelector" autocomplete="off">
+              <option value="fast">Fast</option>
+              <option value="standard" selected>Standard</option>
+              <option value="slow">Slow</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- presets -->
+        <div class="optionMenu">
+          <h2>Presets</h2>
+          <div class="presetButtons">
+            <button type="button" class="sandboxButton">Sandbox</button>
+            <button type="button" class="rightVLeftButton">
+              Right vs Left Example
+            </button>
+            <button type="button" class="randomButton">Random</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- games grid -->
+      <main class="centreColumn">
+        <h1>Visualising Higher Order Functions</h1>
+        <div class="grid">
+          <div class="row" rowY="0">
+            <div class="cell" cellX="0"></div>
+            <div class="cell" cellX="1"></div>
+            <div class="cell" cellX="2"></div>
+            <div class="cell" cellX="3"></div>
+            <div class="cell" cellX="4"></div>
+          </div>
+          <div class="row" rowY="1">
+            <div class="cell" cellX="0"></div>
+            <div class="cell" cellX="1"></div>
+            <div class="cell" cellX="2"></div>
+            <div class="cell" cellX="3"></div>
+            <div class="cell" cellX="4"></div>
+          </div>
+          <div class="row" rowY="2">
+            <div class="cell" cellX="0"></div>
+            <div class="cell" cellX="1"></div>
+            <div class="cell" cellX="2"></div>
+            <div class="cell" cellX="3"></div>
+            <div class="cell" cellX="4"></div>
+          </div>
+          <div class="row" rowY="3">
+            <div class="cell" cellX="0"></div>
+            <div class="cell" cellX="1"></div>
+            <div class="cell" cellX="2"></div>
+            <div class="cell" cellX="3"></div>
+            <div class="cell" cellX="4"></div>
+          </div>
+          <div class="row" rowY="4">
+            <div class="cell" cellX="0"></div>
+            <div class="cell" cellX="1"></div>
+            <div class="cell" cellX="2"></div>
+            <div class="cell" cellX="3"></div>
+            <div class="cell" cellX="4"></div>
+          </div>
+          <div class="tile-container"></div>
+        </div>
+      </main>
+
+      <!-- links to info pages -->
+      <aside class="rightColumn">
+        <div class="optionMenu">
+          <h2>Information</h2>
+          <nav class="info-nav">
+            <a
+              href="#open"
+              title="Open page on Higher Order Functions"
+              class="open-HOF-Info info-link"
+            >
+              <span class="infoIcon">?</span>
+              <span>What is a Higher Order Function?</span>
+            </a>
+            <a
+              href="#open"
+              title="Open page on Foldr vs Foldl"
+              class="open-Fold-Info info-link"
+            >
+              <span class="infoIcon">?</span>
+              <span>What are Foldl and Foldr?</span>
+            </a>
+            <a
+              href="#open"
+              title="Open page on Higher Order Functions"
+              class="open-MapFilter-Info info-link"
+            >
+              <span class="infoIcon">?</span>
+              <span>What are Map and Filter?</span>
+            </a>
+            <a
+              href="#open"
+              title="Open page on Higher Order Functions"
+              class="open-Website-Info info-link"
+            >
+              <span class="infoIcon">?</span>
+              <span>How to use this website?</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
     </div>
-    <div>
-      <span>Presets:</span>
-      <button type="button" class="sandboxButton">Sandbox</button>
-      <button type="button" class="rightVLeftButton">
-        Right vs Left Example
-      </button>
-      <button type="button" class="randomButton">Random</button>
-    </div>
-    <div class="grid">
-      <div class="row" rowY="0">
-        <div class="cell" cellX="0"></div>
-        <div class="cell" cellX="1"></div>
-        <div class="cell" cellX="2"></div>
-        <div class="cell" cellX="3"></div>
-        <div class="cell" cellX="4"></div>
-      </div>
-      <div class="row" rowY="1">
-        <div class="cell" cellX="0"></div>
-        <div class="cell" cellX="1"></div>
-        <div class="cell" cellX="2"></div>
-        <div class="cell" cellX="3"></div>
-        <div class="cell" cellX="4"></div>
-      </div>
-      <div class="row" rowY="2">
-        <div class="cell" cellX="0"></div>
-        <div class="cell" cellX="1"></div>
-        <div class="cell" cellX="2"></div>
-        <div class="cell" cellX="3"></div>
-        <div class="cell" cellX="4"></div>
-      </div>
-      <div class="row" rowY="3">
-        <div class="cell" cellX="0"></div>
-        <div class="cell" cellX="1"></div>
-        <div class="cell" cellX="2"></div>
-        <div class="cell" cellX="3"></div>
-        <div class="cell" cellX="4"></div>
-      </div>
-      <div class="row" rowY="4">
-        <div class="cell" cellX="0"></div>
-        <div class="cell" cellX="1"></div>
-        <div class="cell" cellX="2"></div>
-        <div class="cell" cellX="3"></div>
-        <div class="cell" cellX="4"></div>
-      </div>
-      <div class="tile-container"></div>
-    </div>
-    <!-- info divs -->
+
+    <!-- info divs, hidden by default -->
     <div class="info-box-container HOF-Info">
-      
       <div class="info-box">
         <h2>Hello!</h2>
         <p>You can display any information you want here!</p>
       </div>
-
     </div>
 
     <div class="info-box-container Fold-Info">
-      
       <div class="info-box">
         <h2>Hello!</h2>
         <p>You can display any information you want here!</p>
       </div>
-
     </div>
 
     <div class="info-box-container MapFilter-Info">
-      
       <div class="info-box">
         <h2>Hello!</h2>
         <p>You can display any information you want here!</p>
       </div>
-
     </div>
 
     <div class="info-box-container Website-Info">
-      
       <div class="info-box">
         <h2>Hello!</h2>
         <p>You can display any information you want here!</p>
       </div>
-      
-    </div>
-
-    <div>
-      <span><a href="#open" title="Open page on Higer Order Functions" class="open-HOF-Info">What is a Higher Order Function?</a></span>
-      <span><a href="#open" title="Open page on Foldr vs Foldl" class="open-Fold-Info">What are Foldl and Foldr?</a></span>
-      <span><a href="#open" title="Open page on Higer Order Functions" class="open-MapFilter-Info">What are Map and Filter</a></span>
-      <span><a href="#open" title="Open page on Higer Order Functions" class="open-Website-Info">How to use this website?</a></span>
     </div>
 
     <script src="js/util.js"></script>

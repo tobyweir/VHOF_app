@@ -2,33 +2,106 @@
     --outer-width: 100px;
     --outer-height: 100px;
     --tile-merge-time: 0.3s;
+    --tile-border-size: 5px;
+
+    --background: blue;
+    --text-colour: blue;
+    --grid-background: blue;
+    --cell-background: blue;
+    --tile-background: blue;
+    --tile-text: blue;
+    --tile-default-border: blue;
 }
 
 html,
 body {
     margin: 0px;
     padding: 0px;
-    overflow: hidden;
+    overflow-x: hidden;
     text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.info-box-container{
+.layout {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: 1fr;
+    min-width: 500px;
+    max-width: 1500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    align-items: start;
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.rightColumn {
+
+}
+
+.centreColumn {}
+
+.optionsMenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.selector {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {}
+
+aside {}
+
+.controlButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.presetButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+
+}
+
+select{
+
+}
+
+
+
+.info-box-container {
     position: fixed;
     display: none;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 100;
-    opacity:90;
+    opacity: 90;
     pointer-events: all;
     justify-content: center;
     align-items: baseline;
     padding: 100px;
 }
 
-.info-box{
+.info-box {
     position: relative;
     top: 0;
     right: 0;
@@ -38,13 +111,13 @@ body {
     z-index: 101;
     padding: 15px;
     overflow: auto;
-    max-width: 60%;
+    max-width: 1000px;
     max-height: 60%;
 }
 
 .grid {
     width: 500px;
-    height: 500xpx;
+    height: 500px;
     aspect-ratio: 1;
     position: relative;
     top: 0;
@@ -53,7 +126,7 @@ body {
     margin-inline: auto;
 
     background-color: #cdc1b5;
-    border: 6px solid #bbada0;
+    outline: 6px solid #bbada0;
 
     display: flex;
     flex-direction: column;
@@ -131,11 +204,11 @@ body {
 }
 
 .tile {
-    width: 90px;
-    height: 90px;
+    width: calc(var(--outer-width) - (var(--tile-border-size) * 2));
+    height: calc(var(--outer-height) - (var(--tile-border-size) * 2));
     display: flex;
     background-color: yellow;
-    border: 5px solid #bbada0;
+    border: var(--tile-border-size) solid #bbada0;
     justify-content: center;
     align-items: center;
 }
@@ -299,6 +372,7 @@ body {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -310,34 +384,102 @@ body {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
     }
+
     10% {
         transform: translate(-1px, -2px) rotate(-1deg);
     }
+
     20% {
         transform: translate(-3px, 0px) rotate(1deg);
     }
+
     30% {
         transform: translate(3px, 2px) rotate(0deg);
     }
+
     40% {
         transform: translate(1px, -1px) rotate(1deg);
     }
+
     50% {
         transform: translate(-1px, 2px) rotate(-1deg);
     }
+
     60% {
         transform: translate(-3px, 1px) rotate(0deg);
     }
+
     70% {
         transform: translate(3px, 1px) rotate(-1deg);
     }
+
     80% {
         transform: translate(-1px, -1px) rotate(1deg);
     }
+
     90% {
         transform: translate(1px, 2px) rotate(0deg);
     }
+
     100% {
         transform: translate(1px, -2px) rotate(-1deg);
     }
+}
+
+@media (orientation: landscape) {
+
+    :root{
+        --outer-width: 140px;
+        --outer-height: 140px;
+        --tile-border-size: 5px;
+    }
+    .grid{
+        width: 700px;
+        height: 700px;
+    }
+
+    .layout {
+        grid-template-columns: 250px 1fr 250px;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .leftColumn,
+    .rightColumn {}
+}
+
+@media (orientation: portrait){
+    .layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10;
+        gap: 0;
+    }
+
+    .leftColumn,
+    .rightColumn {
+        position: static;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .centreColumn {
+        order: -1;
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px){
+    :root{
+        --outer-width: 80px;
+        --outer-height: 80px;
+        --tile-border-size: 5px;
+    }
+    .grid{
+        width: 400px;
+        height: 400px;
+    }
+
 }
