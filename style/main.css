@@ -4,13 +4,44 @@
     --tile-merge-time: 0.3s;
     --tile-border-size: 5px;
 
-    --background: blue;
+    --background-colour: white;
     --text-colour: blue;
     --grid-background: blue;
     --cell-background: blue;
     --tile-background: blue;
     --tile-text: blue;
     --tile-default-border: blue;
+    --accent-colour: blue;
+    --border-colour: blue;
+    --radius: 5px;
+
+    --exit-button-colour: blue;
+    --exit-button-accent-colour: blue;
+
+    --option-menu-background-colour: blue;
+
+
+}
+
+button {
+    background-color: var(--background-colour);
+    border: none;
+    color: var(--text-colour);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-colour);
+    cursor: pointer;
+    transition: all 0.10s ease;
+}
+
+button:hover {
+  background: var(--accent-colour);
+  transform: translateY(-1px);
+  box-shadow: var(5px 5px);
 }
 
 html,
@@ -24,7 +55,7 @@ body {
 
 .layout {
     display: grid;
-    grid-template-columns: 250px 1fr 250px;
+    grid-template-columns: 200px 1fr 200px;
     grid-template-rows: 1fr;
     min-width: 500px;
     max-width: 1500px;
@@ -40,15 +71,18 @@ body {
     justify-content: stretch;
 }
 
-.rightColumn {
-
-}
+.rightColumn {}
 
 .centreColumn {}
 
-.optionsMenu {
+.optionMenu {
     display: flex;
     flex-direction: column;
+    border: 5px solid var(--border-colour);
+    background-color: var(--option-menu-background-colour);
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: var(--radius);
 }
 
 .selector {
@@ -56,7 +90,9 @@ body {
     flex-direction: column;
 }
 
-h2 {}
+h2 {
+    text-align: left;
+}
 
 aside {}
 
@@ -65,22 +101,61 @@ aside {}
     flex-direction: column;
 }
 
+.controlButtons button:last-child {
+    margin-bottom: 0px;
+}
+
 .presetButtons {
     display: flex;
     flex-direction: column;
 }
 
-nav{
+.optionMenu button {
+    padding: 10px;
+}
+
+.presetButtons button:last-child {
+    margin-bottom: 0px;
+}
+
+nav {
     display: flex;
     flex-direction: column;
 }
 
-label{
-
+label {
+    text-align: left;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    color: var(--color-text);
 }
 
-select{
+select {
+    padding: 10px;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    background: var(--background-colour);
+    border: 1px solid var(--border-colour);
+    border-radius: var(--radius);
+    cursor: pointer;
+    appearance: none;
+    /* arrow image from this link -> https://stackoverflow.com/a/42087251 */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    ;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+    transition: border-color 0.15s ease;
+}
 
+.selector {
+    margin-bottom: 10px;
+}
+
+.selector:last-child {
+    margin-bottom: 0px !important;
+    background-color: blue !important;
 }
 
 
@@ -428,12 +503,13 @@ select{
 
 @media (orientation: landscape) {
 
-    :root{
+    :root {
         --outer-width: 140px;
         --outer-height: 140px;
         --tile-border-size: 5px;
     }
-    .grid{
+
+    .grid {
         width: 700px;
         height: 700px;
     }
@@ -448,19 +524,17 @@ select{
     .rightColumn {}
 }
 
-@media (orientation: portrait){
+@media (orientation: portrait) {
     .layout {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 10;
-        gap: 0;
     }
 
     .leftColumn,
     .rightColumn {
         position: static;
-        width: 100%;
+        width: 80%;
         max-width: 500px;
     }
 
@@ -471,13 +545,14 @@ select{
 
 }
 
-@media (max-width: 600px){
-    :root{
+@media (max-width: 600px) {
+    :root {
         --outer-width: 80px;
         --outer-height: 80px;
         --tile-border-size: 5px;
     }
-    .grid{
+
+    .grid {
         width: 400px;
         height: 400px;
     }
