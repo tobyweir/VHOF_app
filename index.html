@@ -168,14 +168,25 @@
     <div class="info-box-container HOF-Info">
       <div class="info-box">
         <h1>What is a Higher Order Function?</h1>
-        <p>You can display any information you want here!</p>
+        <p>A <strong>Higher Order Function</strong> is a function that either takes another function as input or returns another function as output.</p>
+        <p>This website allows for 3 Higher Order Functions to be applied to the tiles on the grid, these being <strong>Fold</strong> (Foldr and Foldl depending on the direction) , <strong>Filter</strong> and <strong>Map</strong>.</p>
+        <p>More information is available on these functions in the other information boxes and the links below.</p>
+        <a href="https://en.wikipedia.org/wiki/Higher-order_function" target="_blank" >https://en.wikipedia.org/wiki/Higher-order_function</a>
       </div>
     </div>
 
     <div class="info-box-container Fold-Info">
       <div class="info-box">
-        <h2>Hello!</h2>
+        <h1>What are Foldl and Foldr?</h1>
         <p>You can display any information you want here!</p>
+        <pre>
+          <code>
+            const foldr = [1, 2, 3, 4].reduceRight((acc, x) => x - acc, 5);
+            console.log(foldr); // 3
+            const foldl = [2 , 3 , 4 , 5].reduce((acc , x) => acc - x , 1);
+            console.log(foldl);
+          </code>
+        </pre>
       </div>
     </div>
 
