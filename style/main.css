@@ -4,6 +4,30 @@
     --tile-merge-time: 0.3s;
     --tile-border-size: 5px;
 
+
+    --primary: #005751;
+    --primary-container: #18716a;
+    --on-primary: #ffffff;
+    --on-primary-container: #a3f2e9;
+
+    --secondary: #476460;
+    --secondary-container: #cae9e4;
+    --on-secondary: #ffffff;
+    --on-secondary-container: #4d6a66;
+
+    --tertiary: #584377;
+    --tertiary-container: #715b91;
+    --on-tertiary: #ffffff;
+    --on-tertiary-container: #edddff;
+
+    --surface: #d7dbd9 ;
+    --neutral: #f7faf8;
+
+    --error: #ba1a1a ;
+
+    --shadow: #000000;
+
+    --background: white;
     --background-colour: white;
     --text-colour: blue;
     --grid-background: blue;
@@ -12,7 +36,8 @@
     --tile-text: blue;
     --tile-default-border: blue;
     --accent-colour: blue;
-    --border-colour: blue;
+    --text-on-accent-colour: white;
+    --border-colour: black;
     --radius: 5px;
 
     --exit-button-colour: blue;
@@ -24,9 +49,9 @@
 }
 
 button {
-    background-color: var(--background-colour);
+    background-color: var(--on-primary);
     border: none;
-    color: var(--text-colour);
+    color: var(--primary);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -39,9 +64,10 @@ button {
 }
 
 button:hover {
-  background: var(--accent-colour);
-  transform: translateY(-1px);
-  box-shadow: var(5px 5px);
+    background: var(--primary);
+    color: var(--on-primary);
+    transform: translateY(-1px);
+    box-shadow: var(5px 5px);
 }
 
 html,
@@ -51,6 +77,8 @@ body {
     overflow-x: hidden;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--neutral);
+    color: var(--primary);
 }
 
 .layout {
@@ -78,8 +106,8 @@ body {
 .optionMenu {
     display: flex;
     flex-direction: column;
-    border: 5px solid var(--border-colour);
-    background-color: var(--option-menu-background-colour);
+    border: 1px solid var(--border-colour);
+    background-color: var(--surface);
     margin-top: 20px;
     padding: 10px;
     border-radius: var(--radius);
@@ -92,6 +120,7 @@ body {
 
 h2 {
     text-align: left;
+    color: var(--primary);
 }
 
 aside {}
@@ -121,21 +150,43 @@ aside {}
 nav {
     display: flex;
     flex-direction: column;
+    gap: 10px
 }
+
+a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: var(--on-primary);
+    border: 1px solid var(--border-colour);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--primary);
+    font-size: 0.9rem;
+    transition: all 0.10s ease;
+}
+
+a:hover {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    transform: translateY(-1px);
+    box-shadow: var(5px 5px);
+}
+
 
 label {
     text-align: left;
     font-size: 0.9rem;
     margin-bottom: 8px;
-    margin-left: 8px;
-    color: var(--color-text);
+    color: var(--primary);
 }
 
 select {
     padding: 10px;
     font-size: 0.9rem;
-    color: var(--color-text);
-    background: var(--background-colour);
+    color: var(--primary);
+    background: var(--on-primary);
     border: 1px solid var(--border-colour);
     border-radius: var(--radius);
     cursor: pointer;
@@ -155,10 +206,21 @@ select {
 
 .selector:last-child {
     margin-bottom: 0px !important;
-    background-color: blue !important;
 }
 
+.infoIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: var(--tertiary);
+    color: var(--on-tertiary);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    flex-shrink: 0;
 
+}
 
 .info-box-container {
     position: fixed;
@@ -199,10 +261,9 @@ select {
     left: 0;
     right: 0;
     margin-inline: auto;
-
-    background-color: #cdc1b5;
-    outline: 6px solid #bbada0;
-
+    outline: 6px solid var(--primary);
+    border-radius: var(--radius);
+    background-color: var(--primary);
     display: flex;
     flex-direction: column;
 }
@@ -219,9 +280,8 @@ select {
     display: flex;
     position: relative;
     flex: 1 1 0;
-    background-color: red;
-    border: 5px solid green;
-
+    background-color: var(--secondary);
+    border: 5px solid var(--primary);
     justify-content: center;
     align-items: center;
 }
@@ -230,6 +290,13 @@ select {
     margin: 0 auto;
     height: fit-content;
     display: none;
+    background-color: var(--on-tertiary);
+    color: var(--tertiary);
+}
+
+.addTileButton:hover {
+    background-color: var(--tertiary);
+    color: var(--on-tertiary);
 }
 
 .removeTileButton {
@@ -240,6 +307,12 @@ select {
     display: none;
 }
 
+.removeTileButton, .closeInfoBoxButton {
+    background-color: var(--on-primary);
+    color: var(--error);
+}
+
+
 .closeInfoBoxButton {
     position: absolute;
     top: 1px;
@@ -247,10 +320,16 @@ select {
     z-index: 102;
 }
 
+.closeInfoBoxButton:hover , .removeTileButton:hover {
+    background-color: var(--error);
+    color: var(--on-primary);
+}
+
 
 
 .arrow {
     bottom: 0px;
+    color: var(--on-primary);
     position: absolute;
     display: none;
     -webkit-user-select: none;
@@ -261,6 +340,7 @@ select {
 
 .value {
     width: 100%;
+    color: var(--on-tertiary);
     text-align: center;
     font-size: 1.3rem;
     appearance: textfield;
@@ -282,8 +362,8 @@ select {
     width: calc(var(--outer-width) - (var(--tile-border-size) * 2));
     height: calc(var(--outer-height) - (var(--tile-border-size) * 2));
     display: flex;
-    background-color: yellow;
-    border: var(--tile-border-size) solid #bbada0;
+    background-color: var(--tertiary);
+    border: var(--tile-border-size) solid var(--primary);
     justify-content: center;
     align-items: center;
 }

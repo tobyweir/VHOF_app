@@ -144,7 +144,7 @@ class Tile {
             let ypos = x.parentNode.getAttribute("ypos");
             let tiles = getTiles(xpos, ypos);
             tiles.forEach((x) => {
-                x.style.borderColor = "grey"
+                x.style.borderColor = "#005751"
                 let arrow = x.querySelector(".arrow");
                 if (arrow) {
                     arrow.style.display = "none"
