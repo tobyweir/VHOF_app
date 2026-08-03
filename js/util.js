@@ -145,7 +145,10 @@ function getArrowText () {
 
 let currRotation = Rotations.right;
 function updateRotation () {
-    if (foldCount !== 0) return;
+    if (foldCount !== 0) {
+        waitForFoldAlert();
+        return;
+    }
     if (currRotation === Rotations.left) {
         currRotation = Rotations.up;
     } else {

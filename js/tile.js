@@ -52,8 +52,14 @@ class Tile {
 
     get value() {
         let val = parseFloat(this._value);
-        if (val !== NaN) return val;
-        return 0;
+        console.log(val);
+        if (!Number.isNaN(val)) {
+            console.log("passed");
+            return val;
+        } else {
+            val = 0;
+        }
+        return val;
     }
 
     spin() {
@@ -166,6 +172,10 @@ class Tile {
         let tile = document.createElement("div");
 
         insertButtonFn("x", "removeTileButton", (button, event) => {
+            if (foldCount !== 0) {
+                waitForFoldAlert();
+                return;
+            }
             let xpos = button.parentNode.parentNode.getAttribute("xpos");
             let ypos = button.parentNode.parentNode.getAttribute("ypos");
             removeTileFromGrid(xpos, ypos);

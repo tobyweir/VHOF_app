@@ -130,6 +130,10 @@ function setupInfoBoxes(list) {
 
 setupInfoBoxes(links);
 
+
+function waitForFoldAlert(){
+    alert("Please wait for current operation to complete");
+}
 // const hofInfoBox = document.querySelector('.HOF-info');
 // const hofInfoInner = hofInfoBox.querySelector('.info-box');
 // insertButtonFn('x', 'closeInfoBoxButton', (button, event) => {

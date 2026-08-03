@@ -4,7 +4,7 @@
     --tile-merge-time: 0.3s;
     --tile-border-size: 5px;
 
-
+    /* https://material-foundation.github.io/material-theme-builder/ */
     --primary: #005751;
     --primary-container: #18716a;
     --on-primary: #ffffff;
@@ -27,23 +27,8 @@
 
     --shadow: #000000;
 
-    --background: white;
-    --background-colour: white;
-    --text-colour: blue;
-    --grid-background: blue;
-    --cell-background: blue;
-    --tile-background: blue;
-    --tile-text: blue;
-    --tile-default-border: blue;
-    --accent-colour: blue;
-    --text-on-accent-colour: white;
     --border-colour: black;
     --radius: 5px;
-
-    --exit-button-colour: blue;
-    --exit-button-accent-colour: blue;
-
-    --option-menu-background-colour: blue;
 
 
 }
@@ -132,6 +117,10 @@ aside {}
 
 .controlButtons button:last-child {
     margin-bottom: 0px;
+}
+
+.controlButtons button:last-child:hover {
+    background-color: var(--error);
 }
 
 .presetButtons {
@@ -247,9 +236,13 @@ select {
     background: white;
     z-index: 101;
     padding: 15px;
-    overflow: auto;
-    max-width: 1000px;
-    max-height: 60%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    width: 500px;
+    height: 500px;
+    max-width: 95%;
+    max-height: 90%;
+    resize: both;
 }
 
 .grid {
