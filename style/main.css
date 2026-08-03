@@ -288,6 +288,7 @@ select {
 
 .addTileButton {
     margin: 0 auto;
+    padding: 10px;
     height: fit-content;
     display: none;
     background-color: var(--on-tertiary);
@@ -625,7 +626,21 @@ select {
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1300px) {
+    :root {
+        --outer-width: 100px;
+        --outer-height: 100px;
+        --tile-border-size: 5px;
+    }
+
+    .grid {
+        width: 500px;
+        height: 500px;
+    }
+
+}
+
+@media (max-width: 510px) {
     :root {
         --outer-width: 80px;
         --outer-height: 80px;
