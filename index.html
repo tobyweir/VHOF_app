@@ -168,39 +168,151 @@
     <div class="info-box-container HOF-Info">
       <div class="info-box">
         <h1>What is a Higher Order Function?</h1>
-        <p>A <strong>Higher Order Function</strong> is a function that either takes another function as input or returns another function as output.</p>
-        <p>This website allows for 3 Higher Order Functions to be applied to the tiles on the grid, these being <strong>Fold</strong> (Foldr and Foldl depending on the direction) , <strong>Filter</strong> and <strong>Map</strong>.</p>
-        <p>More information is available on these functions in the other information boxes and the links below.</p>
-        <a href="https://en.wikipedia.org/wiki/Higher-order_function" target="_blank" >https://en.wikipedia.org/wiki/Higher-order_function</a>
+        <p>
+          A <strong>Higher Order Function</strong> is a function that either
+          takes another function as input or returns another function as output.
+        </p>
+        <p>
+          This website allows for 3 Higher Order Functions to be applied to the
+          tiles on the grid, these being <strong>Fold</strong> (Foldr and Foldl
+          depending on the direction) , <strong>Filter</strong> and
+          <strong>Map</strong>.
+        </p>
+        <p>
+          More information is available on these functions in the other
+          information boxes and the links below.
+        </p>
+        <a
+          href="https://en.wikipedia.org/wiki/Higher-order_function"
+          target="_blank"
+          >https://en.wikipedia.org/wiki/Higher-order_function</a
+        >
       </div>
     </div>
 
     <div class="info-box-container Fold-Info">
       <div class="info-box">
         <h1>What are Foldl and Foldr?</h1>
-        <p>You can display any information you want here!</p>
-        <pre>
-          <code>
-            const foldr = [1, 2, 3, 4].reduceRight((acc, x) => x - acc, 5);
-            console.log(foldr); // 3
-            const foldl = [2 , 3 , 4 , 5].reduce((acc , x) => acc - x , 1);
-            console.log(foldl);
-          </code>
-        </pre>
+        <p>
+          foldl and foldr are higher order functions which reduce a list of
+          elements to a single element, an example use case is using a fold
+          operation on a list with the (+) function to calculate the total sum
+          of the list
+        </p>
+        <p>
+          foldl and foldr operate in two different ways and can produce very
+          different results, in the above example they would produce the same
+          output as (+) is associative but other functions such as (-) would
+          not.
+        </p>
+        <p>
+          Lets use an example list of [1 , 2 , 3 , 4 , 5] and the function (-)
+        </p>
+        <p>This is the same as having a row of tiles with the same values.</p>
+        <p>
+          For Foldr we can view the rightmost tile as the accumulator, the
+          accumulator is the value that will be passed along between each
+          calculation, as each calculation needs 2 values an accumulator is
+          needed at the start of the fold operation.
+        </p>
+        <p>calling this function in a language like Haskell would look like:</p>
+        <p><code>foldr accumulator function list</code></p>
+        <p><code>foldr 5 (-) [1 , 2, 3, 4]</code></p>
+        <p>This can be seen as putting a minus symbol between each value:</p>
+        <p>
+          1 - 2 - 3 - 4 - 5 (accumulator taken to the right to begin the
+          operation)
+        </p>
+        <p>
+          The difference between foldr and foldl is where the accumulator is
+          taken to start and the order of operations
+        </p>
+        <p>For foldr this means that</p>
+        <p><code>1 - 2 - 3 - 4 - 5</code></p>
+        <p>becomes</p>
+        <p><code>(1 - (2 - (3 - (4 - 5))))</code></p>
+        <p>with a result of 3</p>
+        <p>For Foldl the accumulator can be viewed as the leftmost tile.</p>
+        <p><code>foldl 1 (-) [2, 3, 4 , 5]</code></p>
+        <p>again can be viewed as </p>
+        <p><code>1 - 2 - 3 - 4 - 5</code></p>
+        <p>but the order of operations is different</p>
+        <p><code>((((1 - 2) - 3) - 4) - 5)</code></p>
+        <p>with a result of 13</p>
+        <p>Here are the same functions written in javascript</p>
+
+        <p>
+          <code
+            >const foldr = [1, 2, 3, 4].reduceRight((acc, x) => x - acc,
+            5);</code
+          >
+        </p>
+        <p><code>console.log(foldr); // 3</code></p>
+        <p>
+          <code
+            >const foldl = [2 , 3 , 4 , 5].reduce((acc , x) => acc - x ,
+            1);</code
+          >
+        </p>
+        <p><code>console.log(foldl);</code></p>
+        <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)" target = "_blank"> https://en.wikipedia.org/wiki/Fold_(higher-order_function)</a>
       </div>
     </div>
 
     <div class="info-box-container MapFilter-Info">
       <div class="info-box">
-        <h2>Hello!</h2>
-        <p>You can display any information you want here!</p>
+        <h1>What are filter and map?</h1>
+        <p>
+          <strong>Filter</strong> and <strong>Map</strong> are higher order
+          functions, both operate on each element of the list.
+        </p>
+        <p>
+          <strong>Filter</strong> checks if a current element satisfies the
+          function is was provided and removes it from the list if it does not
+        </p>
+        <p>
+          For example when the value 1 is passed into the function (x > 10),
+          false will be the output, this means that filter will not keep the
+          value
+        </p>
+        <p>
+          <strong>Map</strong> applies the function it was given to each element
+          of the list and replaces the element with the output
+        </p>
+        <p>
+          For example when map applies (x + 1) to 3 the result will be 4, and
+          this value will become part of the new list.
+        </p>
       </div>
     </div>
 
     <div class="info-box-container Website-Info">
       <div class="info-box">
-        <h2>Hello!</h2>
-        <p>You can display any information you want here!</p>
+        <h1>How to use this Website?</h1>
+        <p>
+          Begin by hovering over a tile and clicking the add tile button or use
+          a preset to add a number of tiles
+        </p>
+        <p>
+          Next you can edit the tiles value by clicking on the number, by
+          default this is 0
+        </p>
+        <p>
+          Now you can use the change rotation button to swap the direction of
+          the fold
+        </p>
+        <p>
+          Double clicking on any tile in the selected column/row will begin the
+          fold
+        </p>
+        <p>
+          Use the controls to experiment between different Higher Order
+          Functions and the arguments they take.
+        </p>
+        <p>
+          Filter and Map do not need a direction so Change rotation is used to
+          swap between selecting columns/rows.
+        </p>
       </div>
     </div>
 
