@@ -99,8 +99,21 @@ animSpeedSelector.addEventListener('change', () => {
 
 cellSetup()
 const rotateButton = document.querySelector('.rotateButton');
-rotateButton.addEventListener('click', () => updateRotation(), false);
+rotateButton.addEventListener('click', () => {
+    updateRotation();
+    updateFoldSelectorLabel();
+}, false);
 
+function updateFoldSelectorLabel() {
+    console.log("test");
+    const foldLabel = document.querySelector('.foldLabel');
+    if (currRotation === Rotations.right || currRotation === Rotations.down) {
+        foldLabel.innerText = "Foldl";
+    } else {
+        foldLabel.innerText = "Foldr";
+    }
+}
+updateFoldSelectorLabel();
 
 const clearAllButton = document.querySelector('.clearAllButton');
 clearAllButton.addEventListener('click', () => clearGrid(), false);
