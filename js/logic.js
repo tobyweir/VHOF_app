@@ -38,13 +38,11 @@ function updateTileValue(value, x, y) {
 function mergeTileIntoTile(a, b, fn, reverse = false) { //a will get the new value and position, b will be removed
     let newvalue = fn(a.value, b.value);
     if (reverse === true) newvalue = fn(b.value, a.value);
-    console.log(a.value, b.value, fn, newvalue);
     grid[a.y][a.x] = undefined;
     a.x = b.x;
     a.y = b.y;
     grid[b.y][b.x] = a;
     a.value = newvalue;
-    console.log(a.value);
     b.remove();
 
 }

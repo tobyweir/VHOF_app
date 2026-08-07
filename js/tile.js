@@ -54,7 +54,6 @@ class Tile {
         let val = parseFloat(this._value);
         console.log(val);
         if (!Number.isNaN(val)) {
-            console.log("passed");
             return val;
         } else {
             val = 0;
