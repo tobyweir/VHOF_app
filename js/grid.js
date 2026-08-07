@@ -105,7 +105,6 @@ rotateButton.addEventListener('click', () => {
 }, false);
 
 function updateFoldSelectorLabel() {
-    console.log("test");
     const foldLabel = document.querySelector('.foldLabel');
     if (currRotation === Rotations.right || currRotation === Rotations.down) {
         foldLabel.innerText = "Foldl";
