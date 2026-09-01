@@ -53,7 +53,7 @@ python3 -m http.server 8000
 | `js/tile.js` | The `Tile` class — builds the DOM element, wires up its events, and owns the animations |
 | `js/logic.js` | The grid model and the implementations of fold, map and filter |
 | `js/grid.js` | Wires the DOM controls to the logic: selectors, buttons, hover behaviour, info boxes |
-| `js/defunct.js` | An earlier row/column hover implementation, kept for reference and not loaded |
+
 
 Scripts are plain (non-module) and run in order, so `util.js` must load before the others and `grid.js` last — it queries and binds the controls as soon as it runs.
 
@@ -67,7 +67,3 @@ Scripts are plain (non-module) and run in order, so `util.js` must load before t
 
 **Input handling.** Tile values are free-text inputs constrained to an optional sign, digits and one decimal point, capped at six characters. Values are parsed on read, and anything unparseable falls back to `0`.
 
-## Credits
-
-- The numeric input filter is adapted from [this Stack Overflow answer](https://stackoverflow.com/questions/469357/html-text-input-allow-only-numeric-input).
-- Background reading linked from the app: [Higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) and [Fold](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) on Wikipedia.
