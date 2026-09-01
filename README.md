@@ -65,5 +65,4 @@ Scripts are plain (non-module) and run in order, so `util.js` must load before t
 
 **Concurrency.** Because folds are asynchronous, a `foldCount` flag locks out rotation, tile creation, tile removal and new operations while one is in flight, rather than letting a second fold mutate the grid mid-merge.
 
-**Input handling.** Tile values are free-text inputs constrained to an optional sign, digits and one decimal point, capped at six characters. Values are parsed on read, and anything unparseable falls back to `0`.
 
